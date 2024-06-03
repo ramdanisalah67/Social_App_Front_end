@@ -1,0 +1,30 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    background-color: white;
+    width: 350px;
+
+}
+
+
+.profile p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    position: relative;
+    top: 7px;
+}
+
+.profile button {
+    
+}
+ion-icon {
+    color: black;
+}

@@ -1,0 +1,144 @@
+* {
+    padding: 0;
+    margin: 0;
+    color: black !important;
+}
+
+
+.bord-details {
+    background-color: white;
+    width: 100%;
+    padding: 20px;
+    max-height: 450px;
+
+}
+
+.profile {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    border: 2px solid beige;
+    padding: 5px 14px ;
+    background-color: rgb(216, 204, 204);
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+
+.profile  img{
+    border-radius: 100%;
+}
+
+.profile p {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-left: 8px;
+}
+
+.categorie div {
+    margin: 30px 0px;
+}
+.friends {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+.friends span {
+
+    margin-left: 10px;
+    position: relative;
+    
+    font-size: 18px;
+    font-weight: bold;
+}
+.fa-user-group {
+    color: cadetblue !important;
+    font-size: 32px;
+    width: 50px;
+
+}
+
+.pages {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+.pages span {
+    margin-left: 10px;
+    position: relative;
+    bottom: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    bottom: 5px;
+
+}
+.fa-file {
+    color: rgb(129, 132, 133) !important;
+    font-size: 35px;
+    width: 50px;
+    position: relative;
+
+}
+
+
+
+.groupes {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+.groupes span {
+
+    margin-left: 10px;
+    position: relative;
+    font-size: 18px;
+    font-weight: bold;
+    bottom: 5px;
+
+}
+.fa-users-line {
+    color: rgb(41, 50, 133) !important;
+    font-size: 35px;
+    width: 50px;
+
+
+}
+
+
+.Birthay {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+.Birthay span {
+
+    margin-left: 10px;
+    position: relative;
+    font-size: 18px;
+    font-weight: bold;
+    bottom: 5px;
+
+}
+.fa-cake-candles {
+    color: rgb(155, 47, 92) !important;
+    font-size: 35px;
+    width: 50px;
+    position: relative;
+    left: 0px;
+    
+
+}
+
+.choice {
+    height: 55px;
+    margin-bottom: 20px;
+}
+.choice:hover {
+    background-color: rgb(241, 231, 231);
+    cursor: pointer;
+}

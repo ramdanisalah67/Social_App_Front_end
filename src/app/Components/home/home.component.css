@@ -1,0 +1,199 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.home-content {
+    width: 950px;
+    border-radius: 10px;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #ffffff;
+    height: 800px;
+    overflow-y: scroll;
+}
+
+.pr-posts {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.posts {
+    width: 90%;
+    margin-top: 50px;
+    top: 80px;
+    border-radius: 25px;
+    border: 2px solid;
+    background-color: rgb(186, 195, 196);
+    padding: 20px;
+
+}
+
+
+.post {
+    margin-top: 20px;
+    background: #ffffff;
+    padding: 25px;
+}
+
+
+.post .user {
+    min-width: 200px;
+    max-width: 300px;
+    height: 60px;
+    background-color: white;
+}
+
+.fix-taille {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+}
+.fix-taille img {
+    width:50px;
+    height:50px;
+    border-radius:50%
+}
+
+
+
+.username-time {
+    padding-left: 10px;
+    position: relative;
+    top: 7px;
+}
+
+.username-time p {
+    font-weight: bold;
+
+}
+
+.username-time span {
+    font-size: 15px;
+}
+
+.text {
+    background-color: rgb(216, 208, 198);
+    padding: 10px;
+    line-height: 20px;
+    width: 90%;
+    margin: auto;
+    border-radius: 8px;
+}
+
+.mg {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.media {
+    background-color: antiquewhite;
+    width: 700px;
+    height: 400px;
+    margin: auto;
+    border-radius: 25px;
+}
+.image{
+ width: 100%;
+ height: 100%;
+ border-radius: 25px;
+
+}
+
+
+.pos-buttons {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+}
+.buttons {
+    width : 25%;
+    margin-left: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons i {
+    font-size: 28px;
+    width: 70px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+
+}
+.buttons i:hover {
+    background-color: rgba(153, 151, 151, 0.247);
+}
+.buttons ion-icon {
+    font-size: 30px;
+    width: 70px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+.buttons ion-icon:hover {
+    background-color: rgba(153, 151, 151, 0.247);
+    cursor: pointer;
+
+}
+.comments {
+    display: none;
+}
+.display-comments {
+    width: 800px;
+    height: 400px;
+    background-color: rgb(169, 149, 187);
+    margin: auto;
+    display: block;
+}
+
+
+.createPost {
+    background: #b5bcc2;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+    position: relative;
+    top: 30px;
+    padding: 10px;
+}
+.createPost img {
+    border-radius: 50%;
+    
+}
+.createPost .icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 110px;
+    
+}
+.createPost .icons ion-icon {
+    font-size: 35px;
+    padding: 2px;
+    border-radius: 5px;
+    
+}
+.createPost input {
+    width: 350px;
+    padding-left: 10px;
+    border-radius: 5px;
+    border: 0px;
+}
+
+.createPost .icons ion-icon:hover {
+  background-color: gray;
+    cursor: pointer;
+}
+

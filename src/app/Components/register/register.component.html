@@ -1,0 +1,63 @@
+
+<div class="container">
+  
+
+    <div class="image">
+      <ion-icon name="person-add-outline"></ion-icon>
+    </div>
+    <p class="text-dark">Create New Account</p>
+        <form  [formGroup]="myformbuilder" class="infos">
+          <mat-form-field appearance="fill">
+            <mat-label>Enter FullName</mat-label>
+            <input  matInput placeholder="EX. ramdani salah-eddine" formControlName="fullName">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <span class="text-danger" *ngIf="fullName.errors?.required && fullName.touched">Full name is required</span>
+            <span class="text-danger" *ngIf="fullName.errors?.minlength && fullName.touched">Full name must be at least 6 characters long</span>
+          </mat-form-field>
+        <mat-form-field>
+            <mat-label>Enter Email</mat-label>
+            <input matInput #input  placeholder="xxx@gmail.com"  formControlName="email" required>
+   
+            <div class="text-danger" *ngIf="email.touched && email.hasError('required')">email must be not empty</div>
+            <div class="text-danger" *ngIf="email.touched && email.hasError('email')">email XXX@gmail.com</div>
+          </mat-form-field>
+          
+          <mat-form-field class="example-full-width">
+            <mat-label>Telephone</mat-label>
+            <span matTextPrefix>+212 &nbsp;</span>
+            <input type="tel" matInput placeholder="0618809103" formControlName="phoneNumber">
+            <mat-icon matSuffix>mode_edit</mat-icon>
+            <span class="text-danger" *ngIf="myformbuilder.get('phoneNumber').errors?.required && phoneNumber.touched">Phone number is required</span>
+            <span class="text-danger" *ngIf="phoneNumber.errors?.pattern && phoneNumber.touched">Phone number must be 10 digits</span>
+     
+          </mat-form-field>
+
+        <mat-form-field class="input-password">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+            <div class="alert alert-danger" *ngIf="password.touched && password.hasError('required')">password must be not empty</div>
+            <div class="alert alert-danger" *ngIf="password.touched && password.hasError('minlength')">password length must be greather than 8</div>
+            <button mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </form>
+   
+        <div class="message text-success" *ngIf="Message.code == '201'">{{ Message.message }}</div>
+        <div class="message text-danger" *ngIf="Message.code == '400'">{{ Message.message }}</div>
+
+       
+        <div class="drag" appDrag (files)="fileDroped($event)">
+          <p>choose profile Picture :</p>
+          <span> drag and drop or <a (click)="profilePicture.click()">browse</a> files</span>
+           
+          <div class="space-image" *ngFor="let file of registredUSer.images">
+            <img [src]="file.url"  width="200px" height="200px" />
+          </div>
+        </div>
+     
+        <input type="file"  multiple class="d-none" #profilePicture (change)="onProfilePictureSelected($event)">
+    <div class="buttons">
+        <button mat-raised-button color="primary" (click)="register()">register</button>
+    </div>
+</div>

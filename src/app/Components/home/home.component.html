@@ -1,0 +1,39 @@
+<div class="home-content">
+    <div class="createPost">
+        <img src="../../../assets/photo-1521459467264-802e2ef3141f.avif" width="50px" height="50px" alt="" >
+
+        <input type="text" placeholder="type something here ..."  (click)="openDialog('0ms', '0ms')">
+        <div class="icons">
+            <ion-icon name="add-circle-outline"></ion-icon>
+            <ion-icon name="image-outline" (click)="myImages.click()"></ion-icon>
+            <input type="file" #myImages class="d-none">
+            <ion-icon name="videocam-outline"></ion-icon>
+        </div>
+    </div>
+    <div class="pr-posts">
+   <div class="posts">
+    <div class="post" *ngFor="let p of posts" >
+        <div class="user">
+        <div class="fix-taille">
+            <img src="../../../assets/photo-1521459467264-802e2ef3141f.avif" alt="" >
+            <div class="username-time"><p>ramdani salah-eddine</p><span>il y a 25 min</span></div>
+        </div>  
+        </div>
+        <div class="text mg" > {{ p.text }}</div>
+        <div class="media mg" >
+            <img
+             [src]="p.images[0].url" style="cursor: pointer;" alt="" class="image" (click)="showPostDetails(p)">
+        </div>
+        <div class="pos-buttons">
+        <div class="buttons">
+            <ion-icon name="heart-outline"></ion-icon>
+            <i class="fa-regular fa-comment"></i>
+            <i class="fa-solid fa-share"></i>
+        </div>
+        </div>
+    </div>
+  
+   </div>
+</div>
+
+</div>

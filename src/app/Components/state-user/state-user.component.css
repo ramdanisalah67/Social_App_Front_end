@@ -1,0 +1,109 @@
+* {
+    padding: 0;
+    margin: 0;
+    color: black;
+}
+
+
+.state {
+    background-color: white;
+    width: 420px;
+    padding: 10px 10px;
+    max-height: 750px;
+    overflow-y: scroll;
+    border-radius: 8px;
+    position: fixed;
+}
+
+
+.state .search {
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid gray;
+    margin-bottom: 15px;
+
+}
+
+.state .search .searchBar {
+    width: 75%;
+    height: 39px;
+    padding-left: 12px;
+    border: 2px solid cadetblue;
+    border-radius: 8px;
+    font-size: 17px;
+
+}
+
+.state .search  ion-icon {
+    position: relative;
+    left: 297px;
+    font-size: 35px;
+    cursor: pointer;
+}
+.title {
+
+    background: #b5bcc2;
+    padding: 10px 10px;
+    border-radius: 8px;
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+.amis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.amie {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    width: 95%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.amie:hover {
+    background-color: #bac3cc;
+}
+.amie img {
+border-radius: 100%;
+}
+
+.amie .username {
+    display: flex;
+    align-items: flex-end;
+    flex-grow: 1;
+    padding-left: 15px;
+}
+
+
+.amie .user-state {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+}
+
+.user-state span {
+    position: absolute;
+    left: 98%;
+    top: 0px;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+
+}
+
+.online {
+    background-color: green;
+
+}
+
+.offline {
+    background-color: red;
+
+}

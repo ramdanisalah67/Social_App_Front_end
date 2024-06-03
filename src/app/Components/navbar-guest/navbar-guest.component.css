@@ -1,0 +1,77 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+.choice {
+    position: absolute;
+    right: 20px;
+    top: 70px;
+    width: 300px;
+
+
+}
+
+.choice .options {
+    flex-grow: 1;
+    display: flex;
+    display: flex;
+    justify-content: space-around;
+}
+
+.choice .options button {
+    flex-grow: 1;
+    margin: 5px;
+    height: 40px;
+    border: 0px;
+    font-size: 22px;
+    border-radius: 5px;
+
+}
+
+.choice .options button:hover {
+    opacity: 0.5;
+}
+
+.active {
+    background-color: black;
+    color: white;
+}
+
+
+.home {
+    width: 200px;
+    height: 40px;
+    background-color: white;
+    color: black;
+    border: 0px;
+    position: absolute;
+    top: 70px;
+    left: 780px;
+    border-radius: 5px;
+    font-size: 22px;
+}
+
+.active {
+    background-color: black;
+    color: white;
+}
+
+.logo {
+    position: absolute;
+    top: 50px;
+    left: 250px;
+     border-radius: 50%;
+}
+ion-icon {
+    font-size: 55px;
+    color: green;
+    border-radius: 50%;
+    padding: 15px;
+    border: 2px solid;
+    background-color: white;
+
+}

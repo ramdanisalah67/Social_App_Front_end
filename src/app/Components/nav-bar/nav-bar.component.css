@@ -1,0 +1,56 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.container {
+    width: 100%;
+    background-color: black;
+    margin: auto;
+    position: relative;
+    border-radius: 8px;
+}
+ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+}
+
+ul li {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+ul li a  {
+    color: white;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    flex-grow: 1;
+}
+
+
+ul li:hover {
+    background-color: white;
+    
+}
+
+ul li:hover a {
+    color: black;
+    
+}
+
+.active {
+    background-color: white;
+    color: black !important;
+    border: 1px solid black;
+}
+
+i {
+    font-size: 25px;
+}

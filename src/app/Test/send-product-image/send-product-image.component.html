@@ -1,0 +1,10 @@
+<p>name</p>
+<input type="text" name="name" [(ngModel)]="p.name">
+<p>description</p>
+<input type="text" name="description" [(ngModel)]="p.description">
+<input type="file" #myImage (change)="onFileSelected($event)">
+<div class="drag">
+    <p>drag and drop or <a (click)="myImage.click()">browse</a> file</p>
+</div>
+
+<button (click)="addProduct()">add Product</button>

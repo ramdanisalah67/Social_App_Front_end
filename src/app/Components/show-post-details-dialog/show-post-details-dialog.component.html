@@ -1,0 +1,62 @@
+
+<mat-dialog-content>
+<span mat-dialog-close class="close"><ion-icon name="close-circle-outline"></ion-icon></span>
+<div class="details">
+  <img [src]="post.images[0].url" class="post-image" alt="">
+  <div class="description">
+    
+    <div class="profile"><img src="../../../assets/rami-al-zayat-w33-zg-dNL4-unsplash.jpg"  alt=""> 
+      <p class="username">ramdani salah-eddine <span class="date">Instant</span></p>
+      <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+    </div>
+    
+    
+      <div class="text">{{ post.text }}</div>
+    <div class="icons">
+      <p><ion-icon name="heart-outline"></ion-icon> <span>123</span></p>
+      <p><ion-icon name="chatbubble-outline"></ion-icon> <span>123</span> </p>
+      <p><ion-icon name="arrow-redo-outline"></ion-icon> <span>123</span> </p>
+
+    </div>
+    <div class="title h5 mb-3">Comments</div>
+
+    <div class="comments">
+
+      <div class="user-comment">
+        <div><img src="../../../assets/rodion-kutsaiev-0VGG7cqTwCo-unsplash.jpg" class="post-image" alt="">
+          <span class="username">salah-eddine <span>25 min</span></span>
+        </div>
+        <p class="comment">this is good idea men Lorem ipsum dolor sit amet consectetur adipisicing elit. dddddddddddd dddddddddddd Culpa accusamus, minima officiis temporibus dignissimos sapiente perferendis velit at aut hic veritatis quaerat earum minus neque adipisci ipsa esse atque vel?</p>
+          <div class="icons-comment">
+            <p><ion-icon name="heart-outline" style="color: red;font-weight: bolder;"></ion-icon> <span>123</span></p>
+            <p><ion-icon name="return-down-back-outline"></ion-icon> <span>123</span></p>
+
+          </div>
+      </div>
+      <div class="user-comment">
+        <div><img src="../../../assets/rodion-kutsaiev-0VGG7cqTwCo-unsplash.jpg" class="post-image" alt="">
+          <span class="username">salah-eddine <span>25 min</span></span>
+        </div>
+        <p class="comment">this is good idea men Lorem ipsum dolor sit amet consectetur adipisicing elit. dddddddddddd dddddddddddd Culpa accusamus, minima officiis temporibus dignissimos sapiente perferendis velit at aut hic veritatis quaerat earum minus neque adipisci ipsa esse atque vel?</p>
+          <div class="icons-comment">
+            <p><ion-icon name="heart-outline"></ion-icon> <span>123</span></p>
+            <p><ion-icon name="return-down-back-outline"></ion-icon> <span>123</span></p>
+
+          </div>
+      </div>
+    
+
+    </div>
+
+  
+  </div>
+  <div class="addComment"> 
+      <textarea type="text" placeholder="type comment here Ex hello salah-eddine"></textarea>
+       <p class="icons">
+        <mat-icon (click)="receiveData()">send</mat-icon>
+        <mat-icon>tag_faces</mat-icon>
+       </p>
+      
+     </div>
+</div>
+</mat-dialog-content>

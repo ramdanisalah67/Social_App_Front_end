@@ -1,0 +1,113 @@
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+
+.container {
+    background:rgba(209, 214, 219, 0.952);
+    width: 1000px;
+    padding: 10px;
+    border-radius: 8px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    left: -10px;
+    
+}
+.image {
+}
+.image ion-icon{
+    font-size: 50px;
+    color: black;
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+    box-shadow: 5px 5px 10px black;
+}
+
+.infos {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    height: 400px;
+}
+
+.infos .input-password{
+    position: relative;
+    bottom: 25px;
+}
+
+.buttons {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;  
+    padding: 3px;  
+}
+.buttons button {
+    width: 150px;
+}
+
+
+.infos mat-form-field {
+    color: black !important;
+    width: 50%;
+}
+
+.infos mat-form-field:nth-child(4) {
+    position: relative;
+    top: 5px;
+}
+
+.text-dark {
+    font-size: 18px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.message {
+    font-weight: bold;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding-left: 5px;
+}
+
+
+.drag {
+    width: 350px;
+    height: 170px;
+    background: #aaa6a6;
+    position: absolute;
+    left: 600px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    border: 2px dashed black;
+}
+
+.drag p {
+    position: absolute;
+    top: -40px;
+    color: black;
+}
+
+
+.drag span a {
+    color: blue;
+    cursor: pointer;
+}
+
+.space-image {
+   position: absolute; 
+   top: 200px;
+}

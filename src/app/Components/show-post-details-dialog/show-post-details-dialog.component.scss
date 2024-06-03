@@ -1,0 +1,189 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: absolute;
+    top: 40px;
+}
+.close {
+    position: absolute;
+    left: 1434px;
+    top: 3px;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+
+.post-image {
+    width: 60%;
+    height: 650px;
+    flex-grow: 0.8;
+    border-radius: 25px;
+}
+
+
+
+.description {
+   width: 440px;
+   padding: 20px;
+   height: 570px;
+   overflow-y: scroll;
+}
+
+
+.description .profile {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 95%;
+    background-color: rgb(243, 243, 243);
+    padding: 10px;
+    margin-bottom: 14px;
+
+}
+
+.description .profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+
+.description .profile .username {
+    flex-grow: 0.8;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 15px;
+}
+
+
+.description .profile ion-icon {
+    font-size: 30px;
+    cursor: pointer;
+    color: black;
+}
+
+
+.description .text {
+    margin-bottom: 14px;
+    padding-left: 10px;
+}
+
+.description .icons {
+    display: flex;
+    justify-content: space-around;
+    
+    border: 11px solid #eee;
+    width: 95%;
+    margin-bottom: 10px;
+}
+.icons p {
+    position: relative;
+    top: 9px;
+}
+.description .icons p ion-icon {
+    font-size: 35px;
+}
+
+
+.description .title {
+    margin-bottom: 10px;
+}
+
+
+
+
+
+.comments .user-comment {
+    min-height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding:  0px;
+}
+
+.user-comment div {
+    margin-bottom: 15px;
+}
+
+
+
+.comments .user-comment div img {
+    width: 40px;
+    height: 40px;
+}
+
+.comments .user-comment div .username {
+    margin-left: 10px;
+    color: black;
+    position: relative;
+}
+.user-comment div .username span {
+    position: absolute;
+    left: 4px;
+    top: 18px;
+    font-size: 14px;
+    color: rgb(90, 87, 87);
+
+}
+.comments .user-comment .comment {
+    margin-top: 15px;
+    width: 92%;
+    margin: auto;
+    background-color: rgb(238, 232, 232);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+
+.icons-comment {
+    display: flex;
+    justify-content: flex-end;
+    width: 95%;
+    margin: auto;
+    padding-top: 10px;
+}
+
+
+.icons-comment p ion-icon {
+    font-size: 28px ;
+}
+
+.addComment {
+    position: absolute;
+    right: 10px;
+    bottom: 0px;
+    height: 70px;
+    background: #eee;
+    width: 420px;
+    display: flex;
+}
+
+.addComment  .icons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 10px 0px;
+    margin: auto;
+}
+
+.addComment .icons mat-icon:hover {
+    color: black;
+    cursor: pointer;
+}
+.addComment textarea {
+    width: 88%;
+    height: 100%;
+    padding-top: 10px;
+    padding-left: 10px;
+    border: 2px solid black;
+    border-radius: 8px;
+}

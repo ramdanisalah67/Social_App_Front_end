@@ -1,0 +1,63 @@
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+
+.container {
+    background:rgba(209, 214, 219, 0.952);
+    width: 500px;
+    padding: 10px;
+    border-radius: 8px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    left: 230px;
+    
+}
+
+.image {
+
+}
+
+.infos {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    height: 204px;
+}
+
+.infos .input-password{
+    position: relative;
+    bottom: 25px;
+    color: black !important;
+
+}
+
+.buttons {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;  
+    padding: 3px;  
+}
+
+.buttons button {
+    width: 150px;
+}
+
+
+.text-danger {
+    font-size: 18px;
+
+    
+} 
+
+.text-danger  ion-icon {
+    font-size: 30px;
+}

@@ -1,0 +1,33 @@
+
+<div class="container">
+  
+
+    <div class="image">
+        <img src="../../../assets/removed-bg-login.png" width="200px" height="200px" alt="">
+    </div>
+  
+        <form  [formGroup]="myformbuilder" class="infos">
+        <mat-form-field>
+            <mat-label>Enter Email</mat-label>
+            <input matInput #input  placeholder="xxx@gmail.com"  formControlName="email" required>
+   
+            <div class="alert alert-danger" *ngIf="email.touched && email.hasError('required')">email must be not empty</div>
+            <div class="alert alert-danger" *ngIf="email.touched && email.hasError('email')">email XXX@gmail.com</div>
+          </mat-form-field>
+        
+        <mat-form-field class="input-password">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+            <div class="alert alert-danger" *ngIf="password.touched && password.hasError('required')">password must be not empty</div>
+            <div class="alert alert-danger" *ngIf="password.touched && password.hasError('minlength')">password length must be greather than 8</div>
+            <button mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </form>
+   
+        <p class="text-danger alert alert-danger p-2 " *ngIf="messageError != '' " >{{ messageError }}</p>
+    <div class="buttons">
+        <button mat-raised-button class="bg-dark text-white" (click)="login()">login</button>
+    </div>
+</div>

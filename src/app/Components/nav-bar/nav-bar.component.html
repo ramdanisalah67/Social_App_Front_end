@@ -1,0 +1,10 @@
+<div class="container">
+    <ul>
+        <li><a routerLink="/home" routerLinkActive="active"><i class="fa-solid fa-house"></i></a></li>
+        <li *ngIf="checkService.userConnected()"><a routerLink="/ff" routerLinkActive="active" ><i class="fa-solid fa-user-group"></i></a></li>
+        <li *ngIf="checkService.userConnected()"><a routerLink="/gg" routerLinkActive="active"><i class="fa-solid fa-message"></i></a></li>
+        <li *ngIf="checkService.userConnected()"><a routerLink="/ee" routerLinkActive="active"><i class="fa-solid fa-bell"></i></a></li>
+        <li *ngIf="checkService.userConnected()"><a routerLink="/z" routerLinkActive="active" alt="hello"><i class="fa-solid fa-gear"></i></a></li>
+
+    </ul>    
+</div>

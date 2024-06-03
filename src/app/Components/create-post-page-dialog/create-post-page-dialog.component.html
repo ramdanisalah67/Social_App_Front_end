@@ -1,0 +1,43 @@
+
+<h2 mat-dialog-title class="title">create Post</h2>
+<mat-dialog-content>
+ <div class="content">
+  <textarea rows="12" name="text" maxlength="1000" [(ngModel)]="newPost.text" placeholder="type something here ...">
+  </textarea >
+  <p class="limit-text " *ngIf="newPost.text.length ==0"> 0/1000</p>
+  <p class="limit-text " *ngIf="newPost.text.length >0"> {{ newPost.text.length }}/1000</p>
+
+ </div>
+
+
+
+ <div class="options d-flex justify-content-between align-items-center">
+  <input type="file" class="input-image d-none" #myMedias (change)="onFileSelected($event)" >
+ <div class="icons-text">
+  <i class="fa-solid fa-face-smile" ></i>
+ <ion-icon name="trash-outline" class="delete" (click)="newPost.text=''"></ion-icon>
+ </div>
+</div>
+
+<div class="drag" appDrag (files)="fileDroped($event)">
+  <div> drag and drop or <a (click)="myMedias.click()" class="browse">browse</a> a file</div>
+ </div>
+
+
+ <div class="mt-5">
+  <div class="row">
+  <mat-grid-list cols="4" rowHeight="1:1" *ngIf="newPost.images.length!=0">
+    <mat-grid-tile *ngFor="let file of newPost.images;let i=index" >
+        <div style="position: relative; ">
+          <ion-icon name="close-circle-outline" class="delete-image" (click)="removeImage(i)"></ion-icon>
+            <img [src]="file.url" width="100px" height="100px" alt="">
+        </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+ </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close class="exit">No</button>
+  <button mat-button mat-dialog-close cdkFocusInitial class="addPost" (click)="createPost()">Ok</button>
+</mat-dialog-actions>
