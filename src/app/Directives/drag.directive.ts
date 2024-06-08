@@ -1,5 +1,5 @@
 import { Directive, EventEmitter, HostBinding, HostListener, Output } from '@angular/core';
-import { ImageHandle } from './Models/ImageHandle';
+import { ImageHandle } from '../Models/ImageHandle';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Directive({

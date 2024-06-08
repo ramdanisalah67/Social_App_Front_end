@@ -12,7 +12,8 @@
     max-height: 750px;
     overflow-y: scroll;
     border-radius: 8px;
-    position: fixed;
+    border: 2px solid gray;
+   
 }
 
 

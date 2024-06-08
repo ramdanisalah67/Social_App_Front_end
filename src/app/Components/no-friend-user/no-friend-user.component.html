@@ -1,0 +1,22 @@
+<div class="content-nofriends">
+  <div class="search mb-3">    
+    <input type="text" class="search-user" placeholder="search for someone">
+    <ion-icon name="search-circle-outline"></ion-icon>
+  </div>
+
+  <div class="title h5 mb-4">
+    Suggestion
+  </div>
+  <div class="users">
+      <div class="user" *ngFor="let suggestion of suggestions;let i= index">
+          <img src="../../../assets/socialmedia-1-1024x512.jpg" width="50px" height="50px" alt="">
+          <div class="username">{{ suggestion.user.fullName }} <span class="commun" *ngIf="suggestion.numberOfCommonFriends >0">{{ suggestion.numberOfCommonFriends }} amies commun</span></div>
+          <div class="buttons">
+            <button mat-raised-button color="primary" [ngClass]="{'d-none': message[i] != null && message[i]!=''}" (click)="sendInvitation(suggestion.user.email,i)">send invitation</button>
+            <button mat-raised-button (click)="rejectInvitation(suggestion.user.email,i)">Annuler</button>
+            <span class="invitation-sent">{{ message[i] }}</span>
+          </div>
+      </div>
+   
+  </div>
+</div>

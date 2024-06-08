@@ -13,8 +13,7 @@ export class LoginComponent  implements OnInit{
   hide = true;
   myformbuilder:any
   messageError=""
-  @Output() dataEmitter: EventEmitter<string> = new EventEmitter<string>();
-  //constructor
+ 
   constructor(private fb:FormBuilder,private router:Router,private authService:AuthService,private checkService:CheckConnectivityService){
   
   this.myformbuilder = this.fb.group({
@@ -51,7 +50,8 @@ export class LoginComponent  implements OnInit{
   //login
 
   login(){
-    console.log(this.myformbuilder.value)
+ 
+
     this.authService.login(this.myformbuilder.value).subscribe(
       (data)=>{
         console.log(data)

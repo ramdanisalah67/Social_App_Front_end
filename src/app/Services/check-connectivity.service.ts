@@ -9,6 +9,7 @@ export class CheckConnectivityService {
 
 
 public  userConnected():boolean{
+  
     if(localStorage.getItem('token')){
       return true
     }
@@ -16,25 +17,20 @@ public  userConnected():boolean{
   }
 
 
-  public loaded():boolean{
-    if(localStorage.getItem('loading')){
-      return true
-    }
-    else return false
-  }
+  public userEmail():string
+      {
+        if(localStorage.getItem("email")){
+          return localStorage.getItem("email")|| ""
+        }
+        return "unkown"
+      }
+      
 
-  public start(){
-    localStorage.setItem('loading','true')
-  
-  }
-  public stop(){
-    localStorage.removeItem('loading')
-  
-  }
-
-  hidelogin(){
-    setTimeout(() => {
-      localStorage.removeItem('loading')
-    }, 3000); // Adjust the timeout duration as needed
-  }
+      public userfullName():string
+      {
+        if(localStorage.getItem("fullName")){
+          return localStorage.getItem("fullName")|| ""
+        }
+        return "unkown"
+      }
 }

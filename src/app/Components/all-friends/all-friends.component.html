@@ -1,0 +1,41 @@
+<div class="content-nofriends">
+  <div class="search mb-3">    
+    <input type="text" class="search-user" placeholder="search for someone">
+    <ion-icon name="search-circle-outline"></ion-icon>
+  </div>
+
+  <div class="title h5 mb-4">
+    All Friends
+  </div>
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <div class="user-section" >
+      <div class="user" *ngFor="let friend of friends">
+        <div class="username">
+          <img src="../../../assets/rodion-kutsaiev-0VGG7cqTwCo-unsplash.jpg" alt="">
+        <p class="h5">{{friend.user.fullName}} <span >25 mutual friends</span></p>
+        </div>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <ion-icon name="arrow-down-circle-outline"></ion-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item routerLink="/showProfile">
+            <mat-icon>account_circle</mat-icon>
+            <span>Show profile</span>
+          </button>
+          
+          <button mat-menu-item >
+            <mat-icon>block</mat-icon>
+            <span>block user</span>
+          </button>
+          
+          <button mat-menu-item >
+            <mat-icon>logout</mat-icon>
+            <span>logout</span>
+          </button>
+        </mat-menu>
+      </div>
+    </div>
+   
+  </mat-grid-list>
+  
+</div>

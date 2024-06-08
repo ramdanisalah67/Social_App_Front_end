@@ -1,0 +1,23 @@
+<div class="content-request">
+  <div class="search mb-3">    
+    <input type="text" class="search-user" placeholder="search for someone">
+    <ion-icon name="search-circle-outline"></ion-icon>
+  </div>
+
+  <div class="title h5 mb-4">
+    Requests
+  </div>
+    <div class="alert">
+      
+    </div>
+  <div class="users">
+      <div class="user" *ngFor="let request of requests;let i= index">
+          <img src="../../../assets/socialmedia-1-1024x512.jpg" width="50px" height="50px" alt="">
+          <div class="username">{{ request.user.fullName }} <span class="commun" *ngIf="request.numberOfCommonFriends >0">{{ request.numberOfCommonFriends }} amies commun</span></div>
+          <div class="buttons">
+            <button mat-raised-button (click)="rejectInvitation(request.user.email,i)">Annuler</button>
+          </div>
+      </div>
+   
+  </div>
+</div>

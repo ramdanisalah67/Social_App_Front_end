@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from './Services/auth.service';
 import { CheckConnectivityService } from './Services/check-connectivity.service';
+import { LoadingService } from './Services/loading.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent  implements OnInit{
   isConnected:boolean=false
   isLoading = true;
 
-  constructor(public checkService:CheckConnectivityService,private router:Router){
+  constructor(public checkService:LoadingService,private router:Router){
   }
   ngOnInit(): void {
 

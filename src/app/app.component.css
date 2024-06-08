@@ -4,60 +4,7 @@
     margin: 0;
 }
 
-app-nav-bar {
-    position: absolute;
-    top: 35px;
-    left: 490px;
-    width: 800px;
-}
-app-loginregister{
-    position: absolute;
-    top: 35px;
-    left: 1460px;
-    border-radius: 8px;
-}
-.navbar {
-    height: 100vh;
-    width: 100%;
-    font-family: 'Courier New', Courier, monospace;
-    position: relative;
-    overflow: scroll;
-    background-image: url('../assets/AdobeStock_389328016_Editorial_Use_Only.webp');
-    background-size: cover;
-}
 
 
-.navbar-content {
-    position: absolute;
-    /*left: 400px;*/
-    top: 140px;
-    width: 95%;
-    left: 45px;
-    display: flex;
-    justify-content: space-between;
-    height: 800px;
-}
-
-
-
-.content {
-    position: fixed;
-    left: 410px;
-
-}
-
-app-state-user {
-        display: flex;
-        width: 420px ;
-
-
-
-}
-
-app-bord-details{
-    display: flex;
-    width: 330px ;
-
-}
 
 

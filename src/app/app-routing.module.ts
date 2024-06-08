@@ -11,6 +11,11 @@ import { AppComponent } from './app.component';
 import { ProfileStateComponent } from './Components/profile-state/profile-state.component';
 import { LoadiconComponent } from './Components/loadicon/loadicon.component';
 import { SendProductImageComponent } from './Test/send-product-image/send-product-image.component';
+import { FriendsComponent } from './Components/friends/friends.component';
+import { TestDragElementComponent } from './Components/test-drag-element/test-drag-element.component';
+import { ShowProfileComponent } from './Components/show-profile/show-profile.component';
+import { RequestComponent } from './Components/request/request.component';
+import { NoFriendUserComponent } from './Components/no-friend-user/no-friend-user.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -21,9 +26,14 @@ const routes: Routes = [
   {path:'dialog',component:CreatePostPageDialogComponent},
   {path:'login_register',component:LoginregisterComponent},
   {path:'',component:AppComponent,pathMatch:'full'},
-  {path:'profile',component:ProfileStateComponent},
   {path:'load',component:LoadiconComponent},
   {path:'addProduct',component:SendProductImageComponent},
+  {path:'friends',component:FriendsComponent},
+  {path:'testDrag',component:TestDragElementComponent},
+  {path:'showProfile',component:ShowProfileComponent},
+  {path:'noFriends',component:NoFriendUserComponent},
+  {path:'request',component:RequestComponent},
+
 
 
 ];

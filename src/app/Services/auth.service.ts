@@ -21,5 +21,8 @@ export class AuthService {
     console.log(userRegister)
     return this.http.post(this.API+'register',userRegister)
   }
+  home():Observable<any>{
+    return this.http.get(this.API+'home')
+  }
 
 }

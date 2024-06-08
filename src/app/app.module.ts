@@ -20,15 +20,29 @@ import { MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {HttpClientModule} from '@angular/common/http'
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 import { LoginregisterComponent } from './Components/loginregister/loginregister.component';
 import { ProfileStateComponent } from './Components/profile-state/profile-state.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { BordDetailsComponent } from './Components/bord-details/bord-details.component';
-import { DragDirective } from './drag.directive';
+import { DragDirective } from './Directives/drag.directive';
 import { LoadiconComponent } from './Components/loadicon/loadicon.component';
 import { ShowPostDetailsDialogComponent } from './Components/show-post-details-dialog/show-post-details-dialog.component';
 import { SendProductImageComponent } from './Test/send-product-image/send-product-image.component';
+import { FriendsComponent } from './Components/friends/friends.component';
+import { StopPropagationDirectiveDirective } from './Directives/stop-propagation-directive.directive';
+import { authInterceptor } from './auth.interceptor';
+import { ChangePositionDirective } from './Directives/change-position.directive';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { TestDragElementComponent } from './Components/test-drag-element/test-drag-element.component';
+import { ShowProfileComponent } from './Components/show-profile/show-profile.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { RequestComponent } from './Components/request/request.component';
+import { NoFriendUserComponent } from './Components/no-friend-user/no-friend-user.component';
+import { AllFriendsComponent } from './Components/all-friends/all-friends.component';
+import { ConfirmationfriendRequestComponent } from './Components/confirmationfriend-request/confirmationfriend-request.component';
+import { ConfirmRejectRequestFriendComponent } from './Components/confirm-reject-request-friend/confirm-reject-request-friend.component';
+import { CongratFriendComponent } from './Components/congrat-friend/congrat-friend.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +61,18 @@ import { SendProductImageComponent } from './Test/send-product-image/send-produc
     DragDirective,
     LoadiconComponent,
     ShowPostDetailsDialogComponent,
-    SendProductImageComponent
+    SendProductImageComponent,
+    FriendsComponent,
+    StopPropagationDirectiveDirective,
+    TestDragElementComponent,
+    ShowProfileComponent,
+    RequestComponent,
+    NoFriendUserComponent,
+    AllFriendsComponent,
+    ConfirmationfriendRequestComponent,
+    ConfirmRejectRequestFriendComponent,
+    CongratFriendComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -63,10 +88,18 @@ import { SendProductImageComponent } from './Test/send-product-image/send-produc
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    MatMenuModule
+    MatMenuModule,
+    ChangePositionDirective,
+    DragDropModule,
+    MatTabsModule,
 
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: authInterceptor,
+      multi: true
+    }
+  ],  bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,56 +1,319 @@
 *{
     padding: 0px;
     margin: 0px;
-}
-.container {
-    width: 100%;
-    background-color: black;
-    margin: auto;
-    position: relative;
-    border-radius: 8px;
-}
-ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-grow: 1;
-}
-
-ul li {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: black;
 }
 
-ul li a  {
-    color: white;
-    height: 50px;
-    display: flex;
-    justify-content: center;
+
+.context {
+    position: absolute;
+    left: 24px;
+    top: 35px;
+    display:  flex;
+    justify-content: space-around;
     align-items: center;
-    text-decoration: none;
-    flex-grow: 1;
-}
-
-
-ul li:hover {
     background-color: white;
-    
+    width: 1800px;
+    height: 70px;
+    margin: auto;
+    padding: 0px 20px;
+    border-radius: 10px;
+    border: 1px solid;
 }
 
-ul li:hover a {
-    color: black;
-    
+
+.context .logo {
+    font-size: 35px;
+    flex-grow: 0.2;
 }
+
+
+.context ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    flex-grow: 0.6;
+    height: 100%;
+}
+
+.context ul li {
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+
+}
+.context ul li button {
+    display: flex;
+    flex-grow: 0.5;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+
+}
+.context ul li button mat-icon {
+    font-size: 30px;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+
+
+}
+
+.context .profile-state {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 300px;
+}
+
+.context .profile-state img {
+    border-radius: 100%;
+}
+
+
+.context .profile-state .username {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 75%;
+    position: relative;
+    top: 8px;
+    padding-left: 18px;  
+    font-size: 18px;  
+}
+
+.context .profile-state button {
+
+}
+
 
 .active {
-    background-color: white;
-    color: black !important;
-    border: 1px solid black;
+    background-color: rgb(226, 217, 217);
 }
 
-i {
-    font-size: 25px;
+
+
+.context2 {
+    position: absolute;
+    left: 528px;
+    top: 35px;
+    display:  flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    width: 800px;
+    height: 70px;
+    margin: auto;
+    padding: 0px 20px;
+    border-radius: 10px;
+    border: 1px solid;
 }
+
+
+.context2 .logo {
+    font-size: 35px;
+    
+}
+
+
+.context2 ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    height: 100%;
+    position: relative;
+    left: 93px;
+}
+
+.context2 ul li {
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+    border-radius: 100%;
+
+}
+.context2 ul li button {
+    display: flex;
+    flex-grow: 0.7;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    border-radius: 100%;
+
+
+}
+.context2 ul li button mat-icon {
+    font-size: 30px;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    position: relative;
+    left: 3px;
+
+
+}
+
+.context2 .buttons {
+        position: relative;
+        left: 70px;
+
+}
+
+.context2 .buttons button {
+    width: 100px;
+    margin: 0px 5px;
+}
+
+::ng-deep .messages.mat-mdc-menu-panel  .mat-mdc-menu-content {
+    width: 500px !important;
+    height: 535px !important;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll; /* Ensure no horizontal scroll */
+  }
+
+
+
+  ::ng-deep .messages.mat-mdc-menu-panel {
+    max-width: 600px !important;
+    height: 600px !important;
+    padding: 20px;
+  }
+
+
+  
+
+  .boite-message .user{
+    display: flex;
+    justify-content: flex-start; align-items: center;
+    padding: 15px 0px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 95%;
+  }
+  .boite-message .user:hover{
+
+    background-color: rgb(218, 218, 218);
+
+  }
+  .boite-message .user img{
+    border-radius: 100%;
+    margin-left: 15px ;
+  }
+  .boite-message .user .username{
+    width: 75%;
+    position: relative;
+    top: 5px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .boite-message .user .username span{
+    font-size: 14px;
+    position: relative;
+    top: 5px;
+
+
+  }
+  .boite-message .user ion-icon{
+    font-size: 35px;
+    cursor: pointer;
+    padding: 5px 8px;
+    border-radius: 100%;
+  }
+  .boite-message .user ion-icon:hover{
+    background-color: rgb(238, 241, 243);
+  }
+
+
+  .show-all-message {
+    position: fixed;
+    bottom: -5px;
+    left: 180px;
+    color: gray;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .chat {
+    margin-left: 10px;
+  }
+
+
+  .boite-notification .notif{
+    display: flex;
+    justify-content: flex-start; align-items: center;
+    padding: 15px 0px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 95%;
+  }
+
+  .boite-notification .notif:hover{
+
+    background-color: rgb(218, 218, 218);
+
+  }
+  .boite-notification .notif img{
+    border-radius: 100%;
+    margin-left: 15px ;
+  }
+  .boite-notification .notif .username{
+    width: 75%;
+    position: relative;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .boite-notification .notif .username span{
+    font-size: 14px;
+    position: relative;
+    top: 5px;
+
+
+  }
+  .boite-notification .notif ion-icon{
+    font-size: 35px;
+    cursor: pointer;
+    padding: 5px 8px;
+    border-radius: 100%;
+  }
+  .boite-notification .notif ion-icon:hover{
+    background-color: rgb(238, 241, 243);
+  }
+
+
+  .show-all-message {
+    position: fixed;
+    bottom: -5px;
+    left: 180px;
+    color: gray;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+
+.notif {
+  position: relative;
+}
+  .notif p i {
+    position: absolute;
+    font-size: 25px;
+    top: 47px;
+    left: 60px;
+  }
+
+
+  .image {
+    padding-right: 16px
+  }

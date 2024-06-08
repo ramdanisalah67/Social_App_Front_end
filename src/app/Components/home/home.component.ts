@@ -7,6 +7,8 @@ import { Post } from 'src/app/Models/Post';
 import { ShowPostDetailsDialogComponent } from '../show-post-details-dialog/show-post-details-dialog.component';
 import { map } from 'rxjs';
 import { ImageProcessingService } from 'src/app/Services/image-processing.service';
+import { LoadingService } from 'src/app/Services/loading.service';
+import { WebSocketNotificationService } from 'src/app/Services/Websocket/web-socket-notification.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +19,9 @@ export class HomeComponent  implements OnInit{
 
   posts:Post[]=[]
 
-  constructor(public dialog: MatDialog,private checkService:CheckConnectivityService,private postService:PostService,private imageProcess:ImageProcessingService) {}
+  constructor(private mySocket:WebSocketNotificationService,public dialog: MatDialog,private checkService:LoadingService,private postService:PostService,private imageProcess:ImageProcessingService) {
+    mySocket.initConnectionSocket()
+  }
   
   ngOnInit(): void {
     this.checkService.hidelogin()
@@ -31,7 +35,7 @@ export class HomeComponent  implements OnInit{
 
     (error)=>{console.log(error.error)})
     //this.openDialog('0ms', '0ms')
-    this.showPostDetails(new Post())
+  //  this.showPostDetails(new Post())
       }
   
 

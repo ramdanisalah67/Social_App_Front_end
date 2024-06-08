@@ -10,6 +10,8 @@
     background-color: #ffffff;
     height: 800px;
     overflow-y: scroll;
+    position: relative;
+    top: 50px;
 }
 
 .pr-posts {
@@ -195,5 +197,15 @@
 .createPost .icons ion-icon:hover {
   background-color: gray;
     cursor: pointer;
+}
+
+.home-parent {
+    display: flex;
+    justify-content: space-around;
+    background-image: url('../../../assets/AdobeStock_389328016_Editorial_Use_Only.webp');
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
 }
 

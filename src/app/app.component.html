@@ -1,15 +1,10 @@
 
-
 <app-loadicon *ngIf="checkService.loaded()"></app-loadicon>
-<div class="navbar" >
+
     <app-nav-bar></app-nav-bar>
-    <div class="navbar-content">
-        <app-bord-details *ngIf="checkService.userConnected()"></app-bord-details>
-
-        <div class="content"><router-outlet (dataEmitter)="receiveData($event)"></router-outlet></div>
-        <app-state-user *ngIf="checkService.userConnected()"></app-state-user>
 
 
-    </div>
-    <app-loginregister></app-loginregister>
-</div>
+        <div ><router-outlet ></router-outlet></div>
+
+
+
