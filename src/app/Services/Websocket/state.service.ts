@@ -1,29 +1,32 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Stomp, StompSubscription } from '@stomp/stompjs';
 import * as SockJS from 'sockjs-client';
 import { Subject, Observable } from 'rxjs';
 import { NotificationItem } from 'src/app/Models/NotificationItem';
+import { State } from 'src/app/Models/State';
 @Injectable({
   providedIn: 'root'
 })
-export class WebSocketNotificationService {
+export class StateService {
+
 
   public stompClient: any;
-  private messageSubject: Subject<NotificationItem> = new Subject<NotificationItem>();
+  private messageSubject: Subject<State> = new Subject<State>();
 
 
   constructor(private http: HttpClient) { 
+    this.initConnectionSocket()
     }
 
   initConnectionSocket():Boolean {
     let authToken = localStorage.getItem("token")
     let connectionSuccess:boolean = false
-    const socket = new SockJS('http://localhost:8090/mySocket?token='+authToken);
+    const socket = new SockJS('http://localhost:8090/notif?token='+authToken);
     this.stompClient = Stomp.over(socket);
 
     this.stompClient.connect({}, () => {
-      console.log('Connected to WebSocket');
+      console.log('Connected to user-state websocket !!');
       this.subscribeToMessages()
       connectionSuccess = true 
       console.log(connectionSuccess)
@@ -34,16 +37,15 @@ export class WebSocketNotificationService {
 
  
   public subscribeToMessages() {
-    this.stompClient.subscribe('/user/queue/messages', (message: any) => {
-      console.log('Received message:', message);
-      const notification: NotificationItem = JSON.parse(message.body);
+    this.stompClient.subscribe('/user/queue/state', (message: any) => {
+      console.log('Received message user-state:', message);
+      const notification: State = JSON.parse(message.body);
       this.messageSubject.next(notification);
      
     });
   }
 
-  public getMessages(): Observable<NotificationItem> {
+  public getMessages(): Observable<State> {
     return this.messageSubject
   }
-
 }

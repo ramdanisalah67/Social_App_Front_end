@@ -1,0 +1,69 @@
+
+.boite-notification .notif{
+    display: flex;
+    justify-content: flex-start; align-items: center;
+    padding: 15px 0px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 95%;
+  }
+
+  .boite-notification .notif:hover{
+
+    background-color: rgb(218, 218, 218);
+
+  }
+  .boite-notification .notif img{
+    border-radius: 100%;
+    margin-left: 15px ;
+  }
+  .boite-notification .notif .username{
+    width: 75%;
+    position: relative;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .boite-notification .notif .username span{
+    font-size: 14px;
+    position: relative;
+    top: 5px;
+
+
+  }
+  .boite-notification .notif ion-icon{
+    font-size: 35px;
+    cursor: pointer;
+    padding: 5px 8px;
+    border-radius: 100%;
+  }
+  .boite-notification .notif ion-icon:hover{
+    background-color: rgb(238, 241, 243);
+  }
+
+
+  .show-all-message {
+    position: fixed;
+    bottom: -5px;
+    left: 180px;
+    color: gray;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+
+.notif {
+  position: relative;
+}
+  .notif p i {
+    position: absolute;
+    font-size: 25px;
+    top: 47px;
+    left: 60px;
+  }
+
+
+  .image {
+    padding-right: 16px
+  }

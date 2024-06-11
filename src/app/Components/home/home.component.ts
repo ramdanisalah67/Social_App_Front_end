@@ -19,8 +19,7 @@ export class HomeComponent  implements OnInit{
 
   posts:Post[]=[]
 
-  constructor(private mySocket:WebSocketNotificationService,public dialog: MatDialog,private checkService:LoadingService,private postService:PostService,private imageProcess:ImageProcessingService) {
-    mySocket.initConnectionSocket()
+  constructor(public dialog: MatDialog,private checkService:LoadingService,private postService:PostService,private imageProcess:ImageProcessingService) {
   }
   
   ngOnInit(): void {

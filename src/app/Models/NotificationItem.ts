@@ -5,4 +5,6 @@ export class NotificationItem {
      source:string ;
      boiteId:string;
      state:string;
+     ref:string
+     dateCreated:string
 }

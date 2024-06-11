@@ -12,14 +12,14 @@
                 </button>
         </li>
         <li *ngIf="connectService.userConnected()">
-            <button mat-button routerLink="/friends" routerLinkActive="active">
+            <button mat-button routerLink="/friends/suggestions" routerLinkActive="active">
                 <mat-icon>group</mat-icon>
                 
               </button>
         </li>
         <li *ngIf="connectService.userConnected()">
                 
-              <button mat-button routerLink="/d"  [matMenuTriggerFor]="menumessage" aria-label="Example icon-button with a menu" routerLinkActive="active" >
+              <button mat-button   [matMenuTriggerFor]="menumessage" aria-label="Example icon-button with a menu" routerLinkActive="active" >
                 <mat-icon>message</mat-icon>
                 </button>
                 <mat-menu #menumessage="matMenu" class="messages" >
@@ -54,73 +54,43 @@
         </li>
         <li *ngIf="connectService.userConnected()">
             
-                <button mat-button routerLink="/f" routerLinkActive="active" [matMenuTriggerFor]="menuNotification" aria-label="Example icon-button with a menu">
-                <mat-icon>notifications</mat-icon>
+                <button mat-button [matMenuTriggerFor]="menuNotification" aria-label="Example icon-button with a menu"  (click)="onMenuOpened()">
+                
+                  <mat-icon  >notifications</mat-icon>
+                    <span class="badge" *ngIf="notificationsNumber>0">{{ notificationsNumber }}</span>
                 </button>
-                <mat-menu #menuNotification="matMenu" class="messages" >
+                <mat-menu #menuNotification="matMenu" class="messages" (closed)="onMenuClosed()" >
                   <p class="h5 chat" appStopPropagationDirective>Notifications</p>
+                  
+                  <!-- Boite notification -->
+                   
                   <div class="boite-notification" appStopPropagationDirective>
-                   <div class="notif" >
-                    <p class="image">
-                      <img src="../../../assets/AdobeStock_389328016_Editorial_Use_Only.webp" width="50px" height="50px" alt="">
-                      <i class="fa-solid fa-users-line"></i>
-                    </p>
-                     <p class="username h5">Palestine Groupe <span>hello salah-eddine how are you  duhdujn you ..</span> </p>
-                     <ion-icon name="ellipsis-horizontal-outline" [matMenuTriggerFor]="menueUser" (click)="print()"></ion-icon>
-                     <mat-menu #menueUser="matMenu">
-                       <button mat-menu-item>
-                         <mat-icon>notifications</mat-icon>
-                         <span>display notification</span>
-                       </button>
-                       
-                       <button mat-menu-item >
-                         <mat-icon>delete</mat-icon>
-                         <span>delete notification</span>
-                       </button>
-                     
-                     </mat-menu>
+                    <div class="notif" *ngFor="let notif of boiteNotif.notificationItems" [ngClass]="{'active-notif': notif.state === 'waiting'}">
+                     <p class="image">
+                       <img src="../../../assets/AdobeStock_389328016_Editorial_Use_Only.webp" width="50px" height="50px" alt="">
+                       <i class="fa-solid fa-users-line" *ngIf="notif.type === 'Groupe'"></i>
+                       <i class="fa-solid fa-user text-primary" *ngIf="notif.type === 'Friend-request' "></i>
+                     </p>
+                      <p class="username h5"> {{ notif.ref }} <span >{{notif.body}}</span> </p>
+                      <ion-icon name="ellipsis-horizontal-outline" [matMenuTriggerFor]="menueUser"></ion-icon>
+                      <mat-menu #menueUser="matMenu">
+                        <button mat-menu-item>
+                          <mat-icon>notifications</mat-icon>
+                          <span>display notification</span>
+                        </button>
+                        
+                        <button mat-menu-item >
+                          <mat-icon>delete</mat-icon>
+                          <span>delete notification</span>
+                        </button>
+                      
+                      </mat-menu>
+                      <span class="date"> {{handleTime.getTime(notif.dateCreated)}} </span>
+                    </div>
+                   
+                   
                    </div>
-                   <div class="notif" >
-                    <p class="image">
-                      <img src="../../../assets/AdobeStock_389328016_Editorial_Use_Only.webp" width="50px" height="50px" alt="">
-                      <i class="fa-solid fa-file text-primary"></i>
-                    </p>
-                     <p class="username h5">Palestine Groupe <span>hello salah-eddine how are you  duhdujn you ..</span> </p>
-                     <ion-icon name="ellipsis-horizontal-outline" [matMenuTriggerFor]="menueUser" (click)="print()"></ion-icon>
-                     <mat-menu #menueUser="matMenu">
-                       <button mat-menu-item>
-                         <mat-icon>notifications</mat-icon>
-                         <span>display notification</span>
-                       </button>
-                       
-                       <button mat-menu-item >
-                         <mat-icon>delete</mat-icon>
-                         <span>delete notification</span>
-                       </button>
-                     
-                     </mat-menu>
-                   </div>
-                   <div class="notif" >
-                    <p class="image">
-                      <img src="../../../assets/AdobeStock_389328016_Editorial_Use_Only.webp" width="50px" height="50px" alt="">
-                      <i class="fa-solid fa-cake-candles text-success"></i>
-                    </p>
-                     <p class="username h5">Palestine Groupe <span>hello salah-eddine how are you  duhdujn you ..</span> </p>
-                     <ion-icon name="ellipsis-horizontal-outline" [matMenuTriggerFor]="menueUser" (click)="print()"></ion-icon>
-                     <mat-menu #menueUser="matMenu">
-                       <button mat-menu-item>
-                         <mat-icon>notifications</mat-icon>
-                         <span>display notification</span>
-                       </button>
-                       
-                       <button mat-menu-item >
-                         <mat-icon>delete</mat-icon>
-                         <span>delete notification</span>
-                       </button>
-                     
-                     </mat-menu>
-                   </div>
-                  </div>
+                  
                   <p class="h5 text-dark show-all-message">View All Notfications details</p>
  
                  </mat-menu>

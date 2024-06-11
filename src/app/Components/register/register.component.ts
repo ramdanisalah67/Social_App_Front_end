@@ -17,6 +17,7 @@ export class RegisterComponent {
   myformbuilder:any
   selectedImage:any
   formData :any
+  user:any
   registredUSer:RegistredUser = new RegistredUser()
 
 
@@ -105,32 +106,39 @@ export class RegisterComponent {
 
 
   register(){
-    
-    if(this.myformbuilder.valid){
-          this.registredUSer.fullName= this.myformbuilder.value.fullName,
-          this.registredUSer.email= this.myformbuilder.value.email,
-          this.registredUSer.password= this.myformbuilder.value.password,
-          this.registredUSer.phoneNumber= this.myformbuilder.value.phoneNumber,
-          
-      
-      this.formData = this.prepareFormData(this.registredUSer)
+                if(this.myformbuilder.valid){
+                  this.registredUSer.fullName= this.myformbuilder.value.fullName,
+                  this.registredUSer.email= this.myformbuilder.value.email,
+                  this.registredUSer.password= this.myformbuilder.value.password,
+                  this.registredUSer.phoneNumber= this.myformbuilder.value.phoneNumber,
+                  
+              
+              this.formData = this.prepareFormData(this.registredUSer)
 
-       this.authService.register(this.registredUSer).subscribe(
-      (data)=>{
-        this.Message= data
-      
-        this.myformbuilder.reset()
-      },
-    (error)=>{console.log(error.error);this.Message = error.error}
-  )
-    }
-    else {
-      console.log("not valid")
-    }
+              this.authService.register(this.registredUSer).subscribe(
+              (data)=>{
+                this.Message= data
+                  console.log(data)
+                  
+                this.myformbuilder.reset()
+                if(data.code == '201'){
+                    this.authService.addMedia(this.formData).subscribe(data=>{
+                      console.log(data)
+                    })
+                }
+              },
+            (error)=>{console.log(error.error);this.Message = error.error}
+            )
+            }
+            else {
+              console.log("not valid")
+            }
+        }
+
     
   }
 
 
 
 
-}
+

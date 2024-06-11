@@ -2,5 +2,4 @@
 
 <li *ngIf="!checkService.userConnected()"><a routerLink="/login"  routerLinkActive="active">login</a></li>
 <li *ngIf="!checkService.userConnected()"><a routerLink="/register"  routerLinkActive="active">register</a></li>
-<app-profile-state *ngIf="checkService.userConnected()"></app-profile-state>
 </ul>

@@ -6,36 +6,14 @@
    <p class="title">Contacts</p>
 
    <div class="amis">
-    <div class="amie">
+    <div class="amie" *ngFor="let friend of friends" >
+             <div >
         <img src="../../../assets/rodion-kutsaiev-0VGG7cqTwCo-unsplash.jpg" width="40px" height="40px" alt="">
-        <p class="username">yassine malhaoui</p>
+        <p class="username">{{ friend.fullName }}</p>
         <p class="user-state">online <span class="online"></span></p>
-    </div>
-    <div class="amie">
-        <img src="../../../assets/rodion-kutsaiev-0VGG7cqTwCo-unsplash.jpg" width="40px" height="40px" alt="">
-        <p class="username">yassine malhaoui</p>
-        <p class="user-state">online <span class="offline"></span></p>
-    </div>
-    <div class="amie">
-        <img src="../../../assets/rodion-kutsaiev-0VGG7cqTwCo-unsplash.jpg" width="40px" height="40px" alt="">
-        <p class="username">yassine malhaoui</p>
-        <p class="user-state">online <span  class="online"></span></p>
-    </div>
-    <div class="amie">
-        <img src="../../../assets/rodion-kutsaiev-0VGG7cqTwCo-unsplash.jpg" width="40px" height="40px" alt="">
-        <p class="username">yassine malhaoui</p>
-        <p class="user-state" >online <span  class="online"></span></p>
-    </div>
-    <div class="amie">
-        <img src="../../../assets/rodion-kutsaiev-0VGG7cqTwCo-unsplash.jpg" width="40px" height="40px" alt="">
-        <p class="username">yassine malhaoui</p>
-        <p class="user-state" >online <span  class="online"></span></p>
-    </div>
-    <div class="amie">
-        <img src="../../../assets/rodion-kutsaiev-0VGG7cqTwCo-unsplash.jpg" width="40px" height="40px" alt="">
-        <p class="username">yassine malhaoui</p>
-        <p class="user-state" >online <span  class="online"></span></p>
-    </div>
     
+             </div>
+    </div>
+      <h3 *ngIf="friends.length == 0">Aucune Contact online</h3>
    </div>
 </div>

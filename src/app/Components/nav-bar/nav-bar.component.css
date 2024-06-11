@@ -86,9 +86,7 @@
     font-size: 18px;  
 }
 
-.context .profile-state button {
 
-}
 
 
 .active {
@@ -173,7 +171,7 @@
 }
 
 ::ng-deep .messages.mat-mdc-menu-panel  .mat-mdc-menu-content {
-    width: 500px !important;
+    width: 580px !important;
     height: 535px !important;
     display: flex;
     flex-direction: column;
@@ -252,7 +250,7 @@
   .boite-notification .notif{
     display: flex;
     justify-content: flex-start; align-items: center;
-    padding: 15px 0px;
+    padding: 15px 15px;
     margin-bottom: 10px;
     cursor: pointer;
     border-radius: 10px;
@@ -287,6 +285,7 @@
     cursor: pointer;
     padding: 5px 8px;
     border-radius: 100%;
+    margin: 0px 8px;
   }
   .boite-notification .notif ion-icon:hover{
     background-color: rgb(238, 241, 243);
@@ -310,10 +309,31 @@
     position: absolute;
     font-size: 25px;
     top: 47px;
-    left: 60px;
+    left: 65px;
   }
 
 
   .image {
     padding-right: 16px
   }
+
+
+.badge {
+  background-color: rgb(204, 52, 52);
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  color: white;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 17px;
+  bottom: -3px;
+
+}
+
+
+.active-notif {
+  background-color: rgb(206, 209, 203);
+}

@@ -22,7 +22,6 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 import { LoginregisterComponent } from './Components/loginregister/loginregister.component';
-import { ProfileStateComponent } from './Components/profile-state/profile-state.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { BordDetailsComponent } from './Components/bord-details/bord-details.component';
 import { DragDirective } from './Directives/drag.directive';
@@ -43,6 +42,10 @@ import { AllFriendsComponent } from './Components/all-friends/all-friends.compon
 import { ConfirmationfriendRequestComponent } from './Components/confirmationfriend-request/confirmationfriend-request.component';
 import { ConfirmRejectRequestFriendComponent } from './Components/confirm-reject-request-friend/confirm-reject-request-friend.component';
 import { CongratFriendComponent } from './Components/congrat-friend/congrat-friend.component';
+import { BoiteNotifComponent } from './Components/boite-notif/boite-notif.component';
+import { TimePipe } from './time.pipe';
+import {MatBadgeModule} from '@angular/material/badge';
+import { PrivateMessageBarComponent } from './Components/private-message-bar/private-message-bar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +58,6 @@ import { CongratFriendComponent } from './Components/congrat-friend/congrat-frie
     NavbarGuestComponent,
     CreatePostPageDialogComponent,
     LoginregisterComponent,
-    ProfileStateComponent,
     StateUserComponent,
     BordDetailsComponent,
     DragDirective,
@@ -71,7 +73,11 @@ import { CongratFriendComponent } from './Components/congrat-friend/congrat-frie
     AllFriendsComponent,
     ConfirmationfriendRequestComponent,
     ConfirmRejectRequestFriendComponent,
-    CongratFriendComponent
+    CongratFriendComponent,
+    BoiteNotifComponent,
+    TimePipe,
+    PrivateMessageBarComponent
+
     
   ],
   imports: [
@@ -92,6 +98,8 @@ import { CongratFriendComponent } from './Components/congrat-friend/congrat-frie
     ChangePositionDirective,
     DragDropModule,
     MatTabsModule,
+    MatBadgeModule,
+    
 
   ],
   providers: [

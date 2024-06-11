@@ -6,5 +6,5 @@ export class RegistredUser {
     phoneNumber:string 
     password:string
     images:ImageHandle[]=[];
-
+    
 }

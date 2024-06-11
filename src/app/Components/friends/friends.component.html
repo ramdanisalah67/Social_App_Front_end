@@ -2,27 +2,19 @@
  <div class="bar-friend">
   <p class="h4">Friends</p>
   <div class="list">
-    <button mat-button [class.active]="activeTab === 'suggestions'" (click)="activeTab = 'suggestions'" class="choice" ><ion-icon name="person-add-outline"></ion-icon><span>Suggestions</span></button>
-    <button mat-button [class.active]="activeTab === 'allFriends'" (click)="activeTab = 'allFriends'" class="choice" ><ion-icon name="people-outline"></ion-icon><span>all Friends</span></button>
-    <button mat-button [class.active]="activeTab === 'request'" (click)="activeTab = 'request'" class="choice" ><ion-icon name="add-outline"></ion-icon><span>Friends Request</span></button>
-    <button mat-button [class.active]="activeTab === 'confirmation'" (click)="activeTab = 'confirmation'" class="choice" ><ion-icon name="checkmark-circle-outline"></ion-icon><span>Confirmation</span></button>
-    <button mat-button [class.active]="activeTab === 'confirmation'" (click)="activeTab = 'confirmation'" class="choice" ><ion-icon name="person-remove-outline"></ion-icon><span>Blockage</span></button>
+    <button mat-button routerLink="suggestions" routerLinkActive="active"   class="choice" ><ion-icon name="person-add-outline"></ion-icon><span>Suggestions</span></button>
+    <button mat-button routerLink="allFriends" routerLinkActive="active"   class="choice" ><ion-icon name="people-outline"></ion-icon><span>all Friends</span></button>
+    <button mat-button routerLink="request"   class="choice" ><ion-icon name="add-outline"></ion-icon><span>Friends Request</span></button>
+    <button mat-button routerLink="confirm-friend"  routerLinkActive="active"  class="choice" ><ion-icon name="checkmark-circle-outline"></ion-icon><span>Confirmation</span></button>
+    <button mat-button    class="choice"  ><ion-icon name="person-remove-outline"></ion-icon><span>Blockage</span></button>
 
   </div>
  </div>
 
- <div class="content" *ngIf="activeTab === 'suggestions'">
-  <app-no-friend-user></app-no-friend-user>
+ <div class="content" >
+  <router-outlet></router-outlet>
  </div>
- <div class="content" *ngIf="activeTab === 'request'">
-  <app-request></app-request>
- </div>
- <div class="content" *ngIf="activeTab === 'allFriends'">
-  <app-all-friends></app-all-friends>
- </div>
- <div class="content" *ngIf="activeTab === 'confirmation'">
-  <app-confirmationfriend-request></app-confirmationfriend-request>
- </div>
+ 
 <div class="image-friend">
   <img src="../../../assets/illustration-concept-poignee-main-amicale_114360-6724.jpg" alt="">
 </div>

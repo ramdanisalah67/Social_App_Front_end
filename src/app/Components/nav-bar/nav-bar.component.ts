@@ -1,44 +1,117 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { RegistredUser } from 'src/app/Models/RegistredUser';
-import { AuthService } from 'src/app/Services/auth.service';
-import { CheckConnectivityService } from 'src/app/Services/check-connectivity.service';
-import { LoadingService } from 'src/app/Services/loading.service';
+  import { Component, OnInit } from '@angular/core';
+  import { Router } from '@angular/router';
+  import { BoiteNotification } from 'src/app/Models/BoiteNotification';
+  import { NotificationItem } from 'src/app/Models/NotificationItem';
+  import { RegistredUser } from 'src/app/Models/RegistredUser';
+  import { WebSocketNotificationService } from 'src/app/Services/Websocket/web-socket-notification.service';
+  import { AuthService } from 'src/app/Services/auth.service';
+  import { CheckConnectivityService } from 'src/app/Services/check-connectivity.service';
+import { HandleTimeService } from 'src/app/Services/handle-time.service';
+  import { LoadingService } from 'src/app/Services/loading.service';
+  import { NotifService } from 'src/app/Services/notif.service';
+import { TimePipe } from 'src/app/time.pipe';
 
-@Component({
-  selector: 'app-nav-bar',
-  templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.css']
-})
-export class NavBarComponent implements OnInit{
-  isConnected:boolean=false
-  user:RegistredUser = new RegistredUser()
-  constructor(public checkService:LoadingService,private router:Router,public authService:AuthService,public connectService:CheckConnectivityService){}
-  ngOnInit(): void {
-      if(localStorage.getItem('token')){
-        this.isConnected=true
-        this.user.email = localStorage.getItem('email') || ""
-        this.user.fullName = localStorage.getItem('fullName') || ""
+  @Component({
+    selector: 'app-nav-bar',
+    templateUrl: './nav-bar.component.html',
+    styleUrls: ['./nav-bar.component.css']
+  })
+  export class NavBarComponent implements OnInit{
+    isConnected:boolean=false
+    user:RegistredUser = new RegistredUser()
+    boiteNotif:BoiteNotification= new BoiteNotification()
+    notificationsNumber = 0
+    i=-1
+    constructor( public handleTime:HandleTimeService, private notificationService:NotifService,private websocketService:WebSocketNotificationService,public checkService:LoadingService,private router:Router,public authService:AuthService,public connectService:CheckConnectivityService){}
+    ngOnInit(): void {
+        if(localStorage.getItem('token')){
+          this.isConnected=true
+          this.user.email = localStorage.getItem('email') || ""
+          this.user.fullName = localStorage.getItem('fullName') || ""
 
-        console.log(this.user)
-      }
-      else {
-        console.log("not  connected")
+      /*    this.notificationService.allNotifications(this.user.email).subscribe(data=>{
+            this.boiteNotif = data
 
-      }
+            console.log(this.boiteNotif)
+            this.notificationsNumber =   this.boiteNotif.notificationItems.filter(n=>n.state == 'waiting').length
+              console.log(this.notificationsNumber)
+              this.i=0
+
+            
+          })*/
+        }
+        else {
+          console.log("not  connected")
+
+        }
+        
+           
+             
+            
+                this.websocketService.getMessages().subscribe(
+                  (newNotification: NotificationItem) => {
+                    console.log("checking ..")
+                  let index = this.boiteNotif.notificationItems.findIndex(e=>e.id==newNotification.id)
+                  if(index!= -1 && this.notificationsNumber>0){
+                      this.boiteNotif.notificationItems.splice(index,1)
+                      this.boiteNotif.notificationItems.unshift(newNotification);
+                  }
+                  if(index!= -1 && this.notificationsNumber==0){
+                    this.boiteNotif.notificationItems.splice(index,1)
+                    this.boiteNotif.notificationItems.unshift(newNotification);
+
+                    console.log("is equal")
+                    this.notificationsNumber++
+                }
+                if(index == -1){
+                  this.boiteNotif.notificationItems.unshift(newNotification);
+                  this.notificationsNumber++
+                  console.log(this.notificationsNumber)
+                }
+                  
+                  }
+                );
+              
+            
+          
+          
+            
+
+    }
+
+
+
+    logout(){
+      let token = localStorage.getItem("token") || ""
+      console.log(token)
+      this.authService.logout(token).subscribe(data=>{
+        if(data.status == '200'){
+          localStorage.clear()
+          this.checkService.start()
+
+          this.router.navigate(['login'])
+        }
+      })
+ 
+    }
+
+
+
+    print(){
+      console.log('hello')
+    }
+
+
+    onMenuClosed(){
+      console.log("notification list closed",this.notificationsNumber)
+      this.notificationService.readNotifications(this.boiteNotif.boiteId).subscribe(data=>{console.log(data)})
+      this.boiteNotif.notificationItems.map(e=>e.state="viewed")
+      console.log(this.boiteNotif.notificationItems)
+
+    }
+
+    onMenuOpened(){
+      console.log("menu opened")
+      this.notificationsNumber = 0
+    }
   }
-
-
-
-  logout(){
-    this.checkService.start()
-    localStorage.clear()
-    this.router.navigate(['login'])
-  }
-
-
-
-  print(){
-    console.log('hello')
-  }
-}

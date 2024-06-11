@@ -9,7 +9,7 @@ import { RegistredUser } from '../Models/RegistredUser';
 export class AuthService {
   public session:boolean=false
   API="http://localhost:8090/api/identity-service/"
-
+  media_api = "http://localhost:8090/api/media/"
   constructor(private http:HttpClient) { }
 
 
@@ -24,5 +24,12 @@ export class AuthService {
   home():Observable<any>{
     return this.http.get(this.API+'home')
   }
+  logout(token:string):Observable<any>{
+    return this.http.get(this.API+'deconnect?token='+token)
+  }
 
+  addMedia(userRegister:FormData):Observable<any>{
+    console.log(userRegister)
+    return this.http.post(this.media_api+'save',userRegister)
+  }
 }
