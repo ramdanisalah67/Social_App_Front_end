@@ -12,26 +12,58 @@
 
 
  <div class="options d-flex justify-content-between align-items-center">
-  <input type="file" class="input-image d-none" #myMedias (change)="onFileSelected($event)" >
+  <input type="file" class="input-image d-none" #myImage (change)="onFileSelected($event)"  >
+  <input type="file" class="input-image d-none" #myVideo (change)="onVideoSelected($event)"  >
+
  <div class="icons-text">
-  <i class="fa-solid fa-face-smile" ></i>
+  <div class="emoji" *ngIf="showEmojiPicker" (click)="onClick($event)">
+    <emoji-mart style
+      (emojiClick)="addEmoji($event)"
+      [i18n]="{ search: 'Recherche', categories: { search: 'Résultats de recherche', recent: 'Récents' } }"
+    ></emoji-mart>
+  </div>
+  <ion-icon name="link-outline" class="link" [matMenuTriggerFor]="menu"></ion-icon>
+
+  <mat-menu #menu="matMenu" class="options">
+    <button mat-menu-item (click)="myImage.click()">
+      <mat-icon>image</mat-icon>
+      <span>upload Images</span>
+    </button>
+    
+    <button mat-menu-item  (click)="myVideo.click()">
+      <mat-icon>videocam</mat-icon>
+      <span>upload video</span>
+    </button>
+    
+    
+  </mat-menu>
+  <i class="fa-solid fa-face-smile"  (click)="showEmojiPicker = !showEmojiPicker"></i>
  <ion-icon name="trash-outline" class="delete" (click)="newPost.text=''"></ion-icon>
  </div>
 </div>
 
-<div class="drag" appDrag (files)="fileDroped($event)">
-  <div> drag and drop or <a (click)="myMedias.click()" class="browse">browse</a> a file</div>
+<div class="drag" [ngClass]="{'d-none': visibility === 'none'}" appDrag (files)="fileDroped($event)">
+  <div> drag and drop or <a (click)="myImage.click()" class="browse">browse</a> a file</div>
  </div>
 
 
  <div class="mt-5">
   <div class="row">
-  <mat-grid-list cols="4" rowHeight="1:1" *ngIf="newPost.images.length!=0">
+  <mat-grid-list class="image-zone" cols="4" rowHeight="1:1" *ngIf="newPost.images.length!=0">
     <mat-grid-tile *ngFor="let file of newPost.images;let i=index" >
-        <div style="position: relative; ">
+        <div style="position: relative; " >
           <ion-icon name="close-circle-outline" class="delete-image" (click)="removeImage(i)"></ion-icon>
             <img [src]="file.url" width="100px" height="100px" alt="">
         </div>
+       
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list class="video-zone" cols="4" rowHeight="1:1" *ngIf="newPost.video">
+    <mat-grid-tile>
+      <div style="position: relative;">
+        <ion-icon name="close-circle-outline" class="delete-image" (click)="removeVideo()"></ion-icon>
+        <video [src]="newPost.video.url" width="100px" height="100px" controls></video>
+      </div>
     </mat-grid-tile>
   </mat-grid-list>
 </div>
@@ -39,5 +71,8 @@
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button mat-dialog-close class="exit">No</button>
-  <button mat-button mat-dialog-close cdkFocusInitial class="addPost" (click)="createPost()">Ok</button>
+  <button mat-button *ngIf="isAddPost"  cdkFocusInitial class="addPost" (click)="createPost()">Ok</button>
+  <button mat-button *ngIf="!isAddPost"  color="primary"  cdkFocusInitial class="addPost" (click)="updatePost()">update</button>
+
+  <mat-spinner *ngIf="spinner != 'none'"></mat-spinner>
 </mat-dialog-actions>

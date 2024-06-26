@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FriendReqRes } from 'src/app/Models/FriendReqRes';
 import { AuthService } from 'src/app/Services/auth.service';
 import { FriendsService } from 'src/app/Services/friends.service';
@@ -12,7 +13,7 @@ export class NoFriendUserComponent   implements OnInit {
   suggestions:any[] =[]
   message:string[]=[]
   activeTab: string = 'suggestions';
-  constructor(private friendService:FriendsService,private authService:AuthService) { }
+  constructor(private friendService:FriendsService,private authService:AuthService,private router:Router) { }
     ngOnInit() {
       let email = localStorage.getItem('email')
       if(email) {
@@ -52,6 +53,12 @@ export class NoFriendUserComponent   implements OnInit {
         data=>{
           if(data.status == '200') this.message[i]=""
           console.log(data)})
+    }
+
+    showProfile(email:string){
+      console.log(email)
+      localStorage.setItem("target",email)
+      this.router.navigate(['userProfile'])
     }
   }
   

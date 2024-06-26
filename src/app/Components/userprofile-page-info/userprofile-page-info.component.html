@@ -1,0 +1,68 @@
+<div class="allInfo" >
+  <div class="details">
+    <mat-tab-group>
+      <mat-tab label="Basic Infos" class="tab">
+        <div class="categorie" >
+          <div *ngIf="userInfo.bio" class="bio "><p class="h5">Bio/Description</p> 
+            <p > {{userInfo.bio}} </p>
+          </div>
+          <hr>
+          <div  *ngIf="userInfo.pays" class="p-info"><ion-icon name="home-outline"></ion-icon>
+            <span >{{userInfo.pays}}</span>
+
+          </div>  
+        <div class="p-info" *ngIf="userInfo.fullName"><ion-icon name="person-circle-outline"></ion-icon>
+          <span>{{userInfo.fullName}}</span>
+        </div>  
+        <div class="p-info" *ngIf="userInfo.email"><ion-icon name="mail-outline"></ion-icon>
+          <span>{{userInfo.email}}</span>
+        </div>  
+        <div  *ngIf="userInfo.phoneNumber" class="p-info"><ion-icon name="call-outline"></ion-icon>
+          <span >{{userInfo.phoneNumber}}</span>
+        </div> 
+        </div> 
+
+      </mat-tab>
+      <mat-tab label="Personnal Info"> 
+        <div class="categorie">
+        <p class="personnal-info-title h5">Personal Info</p>
+        <div *ngIf="userInfo.dateOfBirth"  class="p-info"><p class="h6">Date of Birth</p>
+          <span >{{userInfo.dateOfBirth}}</span>
+        </div>  
+        <div *ngIf="userInfo.gender"  class="p-info"><p class="h6">Gender</p>
+          <span >{{userInfo.gender}}</span>
+        </div>  
+        <div  *ngIf="userInfo.relationShipStatus" class="p-info"><p class="h6">Relationship Status</p>
+          <span >{{userInfo.relationShipStatus}}</span>
+        </div>  
+        <div *ngIf="userInfo.languages" class="p-info"><p class="h6">Languages Spoken</p>
+          <span >{{userInfo.languages}}</span>
+        </div>  
+
+      </div>
+         </mat-tab>
+      <mat-tab label="Proffesional Info">
+        <div class="categorie">
+          <p class="personnal-info-title h5">Professional Info</p>
+          <div *ngIf="userInfo.currentJobTitle"  class="p-info"><p class="h6">Current Job Title</p>
+            <span >{{userInfo.currentJobTitle}}</span>
+          </div>  
+          <div  *ngIf="userInfo.company" class="p-info"><p class="h6">Company/Organization</p>
+            <span >{{userInfo.company}}</span>
+          </div>  
+          <div *ngIf="userInfo.workExperience" class="p-info"><p class="h6">Work Experience</p>
+            <span >{{userInfo.workExperience}}</span>
+          </div>  
+          <div  *ngIf="userInfo.education" class="p-info"><p class="h6">Education</p>
+            <span >{{userInfo.education}}</span>
+          </div>
+          <div *ngIf="userInfo.linkedIn" class="p-info"><p class="h6">LinkedIn Profile</p>
+            <span >{{userInfo.linkedIn}}</span>
+          </div>  
+
+  
+        </div> </mat-tab>
+
+    </mat-tab-group>
+  </div>
+</div>

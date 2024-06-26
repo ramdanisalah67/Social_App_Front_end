@@ -32,4 +32,9 @@ export class AuthService {
     console.log(userRegister)
     return this.http.post(this.media_api+'save',userRegister)
   }
+
+
+  findUserByEmail(email:string):Observable<any>{
+      return this.http.get(this.API+'getUser/'+email)
+  }
 }

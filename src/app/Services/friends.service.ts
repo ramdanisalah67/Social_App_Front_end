@@ -51,4 +51,9 @@ export class FriendsService {
     return this.http.get(this.API+'confirmations/'+email)
   } 
 
+
+  getProfilInfoWithFriends(target:string,actioner:string):Observable<any>{
+    return this.http.get(this.API+'profile/'+target+'/'+actioner)
+  }
+
 }

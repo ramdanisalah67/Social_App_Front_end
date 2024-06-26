@@ -1,0 +1,49 @@
+
+.image-profile {
+    width: 90%;
+    height: 300px;
+    margin: auto;
+    background-image: url('../../../assets/illustration-concept-poignee-main-amicale_114360-6724.jpg');
+    position: relative;
+}
+
+.image-profile img {
+    width: 170px;
+    height: 170px;
+    border-radius: 100%;
+    position: absolute;
+    bottom: -105px;
+    left: 45px;
+    border: 5px solid white;
+ 
+
+}
+
+.info {
+    width: 60%;
+    position: relative;
+    left: 280px;
+    top: 15px;
+    display: flex;
+   justify-content: space-between;
+}
+
+.text-secondary {
+    cursor: pointer;
+}
+
+::ng-deep .picture.mat-mdc-menu-panel  .mat-mdc-menu-content {
+    width: 250px !important;
+    height: 141px !important;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll; /* Ensure no horizontal scroll */
+  }
+
+
+
+  ::ng-deep .picture.mat-mdc-menu-panel {
+    max-width: 280px !important;
+    height: 181px!important;
+    padding: 20px;
+  }

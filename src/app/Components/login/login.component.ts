@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthResponse } from 'src/app/Models/AuthResponse';
 import { AuthService } from 'src/app/Services/auth.service';
 import { CheckConnectivityService } from 'src/app/Services/check-connectivity.service';
 
@@ -13,7 +14,7 @@ export class LoginComponent  implements OnInit{
   hide = true;
   myformbuilder:any
   messageError=""
- 
+  response :AuthResponse= new AuthResponse()
   constructor(private fb:FormBuilder,private router:Router,private authService:AuthService,private checkService:CheckConnectivityService){
   
   this.myformbuilder = this.fb.group({
@@ -50,16 +51,19 @@ export class LoginComponent  implements OnInit{
   //login
 
   login(){
- 
 
-    this.authService.login(this.myformbuilder.value).subscribe(
+  
+
+ 
+   this.authService.login(this.myformbuilder.value).subscribe(
       (data)=>{
+        this.response=data
         console.log(data)
         localStorage.setItem('token',data.token)
         localStorage.setItem('fullName',data.fullName)
         localStorage.setItem('email',data.email)
-        localStorage.setItem('loading','true')
-        this.authService.session=true
+        
+  //      this.authService.session=true
 
         this.router.navigate(['home'])
       },
@@ -73,6 +77,7 @@ export class LoginComponent  implements OnInit{
      }
     }
   )
+ 
 
   }
 }

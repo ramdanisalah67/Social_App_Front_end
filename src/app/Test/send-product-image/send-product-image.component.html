@@ -1,10 +1,30 @@
-<p>name</p>
-<input type="text" name="name" [(ngModel)]="p.name">
-<p>description</p>
-<input type="text" name="description" [(ngModel)]="p.description">
-<input type="file" #myImage (change)="onFileSelected($event)">
+<p>text</p>
+<input type="text" name="text" [(ngModel)]="newPost.text">
+<p>image</p>
+<input type="file" multiple #myImage (change)="onFileSelected($event)">
+<p>video</p>
+<input type="file" accept="video/*" (change)="onVideoSelected($event)">
 <div class="drag">
     <p>drag and drop or <a (click)="myImage.click()">browse</a> file</p>
 </div>
 
-<button (click)="addProduct()">add Product</button>
+<button (click)="addPost()">add Post</button>
+  <!-- Display upload progress -->
+  <div *ngIf="uploadProgress > 0">
+    <p>Upload Progress: {{ uploadProgress }}%</p>
+    <progress max="100" [value]="uploadProgress">{{ uploadProgress }}%</progress>
+  </div>
+  <div *ngIf="responseMessage">
+    <p>{{ responseMessage }}</p>
+  </div>
+
+  <div class="data">
+
+    <div class="child" *ngFor="let post of posts">
+        <div *ngIf="post.video">
+            <video [src]="post.video.url" controls></video>
+          </div>
+
+    </div>
+
+  </div>

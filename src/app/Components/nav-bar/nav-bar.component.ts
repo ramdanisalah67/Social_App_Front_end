@@ -10,6 +10,8 @@ import { HandleTimeService } from 'src/app/Services/handle-time.service';
   import { LoadingService } from 'src/app/Services/loading.service';
   import { NotifService } from 'src/app/Services/notif.service';
 import { TimePipe } from 'src/app/time.pipe';
+import { SettingDialogComponent } from '../setting-dialog/setting-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
   @Component({
     selector: 'app-nav-bar',
@@ -22,76 +24,22 @@ import { TimePipe } from 'src/app/time.pipe';
     boiteNotif:BoiteNotification= new BoiteNotification()
     notificationsNumber = 0
     i=-1
-    constructor( public handleTime:HandleTimeService, private notificationService:NotifService,private websocketService:WebSocketNotificationService,public checkService:LoadingService,private router:Router,public authService:AuthService,public connectService:CheckConnectivityService){}
+    constructor(public handleTime:HandleTimeService, private notificationService:NotifService,private websocketService:WebSocketNotificationService,public checkService:LoadingService,private router:Router,public authService:AuthService,public connectService:CheckConnectivityService){}
     ngOnInit(): void {
         if(localStorage.getItem('token')){
           this.isConnected=true
           this.user.email = localStorage.getItem('email') || ""
           this.user.fullName = localStorage.getItem('fullName') || ""
 
-      /*    this.notificationService.allNotifications(this.user.email).subscribe(data=>{
-            this.boiteNotif = data
-
-            console.log(this.boiteNotif)
-            this.notificationsNumber =   this.boiteNotif.notificationItems.filter(n=>n.state == 'waiting').length
-              console.log(this.notificationsNumber)
-              this.i=0
-
-            
-          })*/
         }
-        else {
-          console.log("not  connected")
-
-        }
-        
-           
-             
+      }     
+    
             
-                this.websocketService.getMessages().subscribe(
-                  (newNotification: NotificationItem) => {
-                    console.log("checking ..")
-                  let index = this.boiteNotif.notificationItems.findIndex(e=>e.id==newNotification.id)
-                  if(index!= -1 && this.notificationsNumber>0){
-                      this.boiteNotif.notificationItems.splice(index,1)
-                      this.boiteNotif.notificationItems.unshift(newNotification);
-                  }
-                  if(index!= -1 && this.notificationsNumber==0){
-                    this.boiteNotif.notificationItems.splice(index,1)
-                    this.boiteNotif.notificationItems.unshift(newNotification);
-
-                    console.log("is equal")
-                    this.notificationsNumber++
-                }
-                if(index == -1){
-                  this.boiteNotif.notificationItems.unshift(newNotification);
-                  this.notificationsNumber++
-                  console.log(this.notificationsNumber)
-                }
-                  
-                  }
-                );
-              
-            
-          
-          
-            
-
-    }
-
-
-
     logout(){
-      let token = localStorage.getItem("token") || ""
-      console.log(token)
-      this.authService.logout(token).subscribe(data=>{
-        if(data.status == '200'){
-          localStorage.clear()
-          this.checkService.start()
+      localStorage.clear()
+      this.checkService.start()
 
-          this.router.navigate(['login'])
-        }
-      })
+      this.router.navigate(['login'])
  
     }
 

@@ -1,10 +1,12 @@
 import { Component, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ImageHandle } from 'src/app/Models/ImageHandle';
 import { RegistredUser } from 'src/app/Models/RegistredUser';
 import { AuthService } from 'src/app/Services/auth.service';
+import { RegistrationSuccessComponent } from '../registration-success/registration-success.component';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +23,7 @@ export class RegisterComponent {
   registredUSer:RegistredUser = new RegistredUser()
 
 
-  constructor(private fb:FormBuilder,private router:Router,private authService:AuthService,private sanitizer:DomSanitizer){
+  constructor(private dialog:MatDialog,private fb:FormBuilder,private router:Router,private authService:AuthService,private sanitizer:DomSanitizer){
   
   this.myformbuilder = this.fb.group({
     email:['',[Validators.required,Validators.email]],
@@ -58,8 +60,8 @@ export class RegisterComponent {
   }
 
 
-  onProfilePictureSelected(e:any){
-    console.log(e)
+ 
+  onFileSelected(e: any) {
     const fileChosed = e.target.files[0];
     const fileHandle: ImageHandle = {
       file: fileChosed,
@@ -68,6 +70,7 @@ export class RegisterComponent {
     this.selectedImage = fileHandle
     console.log(this.selectedImage)
     this.registredUSer.images.push(fileHandle)
+    console.log(this.registredUSer)
   }
 
 
@@ -77,9 +80,10 @@ export class RegisterComponent {
   }
 
 
-  fileDroped(fileHandle:any){
-      this.registredUSer.images.push(fileHandle)
-      console.log(fileHandle)
+  fileDroped(fileHandle:ImageHandle){
+    console.log(fileHandle)
+    this.registredUSer.images.push(fileHandle)
+    console.log(this.registredUSer)
   }
 
   prepareFormData(user:RegistredUser):FormData{
@@ -120,11 +124,16 @@ export class RegisterComponent {
                 this.Message= data
                   console.log(data)
                   
-                this.myformbuilder.reset()
+              //  this.myformbuilder.reset()
                 if(data.code == '201'){
                     this.authService.addMedia(this.formData).subscribe(data=>{
-                      console.log(data)
-                    })
+                        console.log("good")
+                        console.log(data)
+                        this.myformbuilder.reset()
+                        this.openDialog('0ms','0ms')
+                        
+                      })
+                   
                 }
               },
             (error)=>{console.log(error.error);this.Message = error.error}
@@ -135,7 +144,13 @@ export class RegisterComponent {
             }
         }
 
-    
+        openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+          const dialogRef = this.dialog.open(RegistrationSuccessComponent, {
+             enterAnimationDuration,
+             exitAnimationDuration,
+           });
+      
+         }
   }
 
 

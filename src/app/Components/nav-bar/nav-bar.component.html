@@ -7,99 +7,20 @@
 
     <ul>
         <li>
-                <button mat-button routerLink="/home" routerLinkActive="active">
-                <mat-icon>home</mat-icon>  
-                </button>
+                <app-home-icon></app-home-icon>
         </li>
         <li *ngIf="connectService.userConnected()">
-            <button mat-button routerLink="/friends/suggestions" routerLinkActive="active">
-                <mat-icon>group</mat-icon>
-                
-              </button>
+         <app-friend-icon></app-friend-icon>
         </li>
         <li *ngIf="connectService.userConnected()">
-                
-              <button mat-button   [matMenuTriggerFor]="menumessage" aria-label="Example icon-button with a menu" routerLinkActive="active" >
-                <mat-icon>message</mat-icon>
-                </button>
-                <mat-menu #menumessage="matMenu" class="messages" >
-                 <p class="h5 chat" appStopPropagationDirective>Chats</p>
-                 <div class="boite-message" appStopPropagationDirective>
-                  <div class="user" >
-                    <img src="../../../assets/AdobeStock_389328016_Editorial_Use_Only.webp" width="50px" height="50px" alt="">
-                    <p class="username h5"> yassin abdallah <span>hello salah-eddine how are you  duhdujn you ..</span> </p>
-                    <ion-icon name="ellipsis-horizontal-outline" [matMenuTriggerFor]="menueUser" (click)="print()"></ion-icon>
-                    <mat-menu #menueUser="matMenu">
-                      <button mat-menu-item>
-                        <mat-icon>account_circle</mat-icon>
-                        <span>Show Profile</span>
-                      </button>
-                      
-                      <button mat-menu-item >
-                        <mat-icon>delete</mat-icon>
-                        <span>delete Conversation</span>
-                      </button>
-                      
-                      <button mat-menu-item (click)="logout()">
-                        <mat-icon>block</mat-icon>
-                        <span>Block user</span>
-                      </button>
-                    </mat-menu>
-                  </div>
-                 
-                 </div>
-                 <p class="h5 text-dark show-all-message">View All in Messenger</p>
-
-                </mat-menu>
+                <app-message-icon></app-message-icon>
+             
         </li>
-        <li *ngIf="connectService.userConnected()">
             
-                <button mat-button [matMenuTriggerFor]="menuNotification" aria-label="Example icon-button with a menu"  (click)="onMenuOpened()">
-                
-                  <mat-icon  >notifications</mat-icon>
-                    <span class="badge" *ngIf="notificationsNumber>0">{{ notificationsNumber }}</span>
-                </button>
-                <mat-menu #menuNotification="matMenu" class="messages" (closed)="onMenuClosed()" >
-                  <p class="h5 chat" appStopPropagationDirective>Notifications</p>
-                  
-                  <!-- Boite notification -->
-                   
-                  <div class="boite-notification" appStopPropagationDirective>
-                    <div class="notif" *ngFor="let notif of boiteNotif.notificationItems" [ngClass]="{'active-notif': notif.state === 'waiting'}">
-                     <p class="image">
-                       <img src="../../../assets/AdobeStock_389328016_Editorial_Use_Only.webp" width="50px" height="50px" alt="">
-                       <i class="fa-solid fa-users-line" *ngIf="notif.type === 'Groupe'"></i>
-                       <i class="fa-solid fa-user text-primary" *ngIf="notif.type === 'Friend-request' "></i>
-                     </p>
-                      <p class="username h5"> {{ notif.ref }} <span >{{notif.body}}</span> </p>
-                      <ion-icon name="ellipsis-horizontal-outline" [matMenuTriggerFor]="menueUser"></ion-icon>
-                      <mat-menu #menueUser="matMenu">
-                        <button mat-menu-item>
-                          <mat-icon>notifications</mat-icon>
-                          <span>display notification</span>
-                        </button>
-                        
-                        <button mat-menu-item >
-                          <mat-icon>delete</mat-icon>
-                          <span>delete notification</span>
-                        </button>
-                      
-                      </mat-menu>
-                      <span class="date"> {{handleTime.getTime(notif.dateCreated)}} </span>
-                    </div>
-                   
-                   
-                   </div>
-                  
-                  <p class="h5 text-dark show-all-message">View All Notfications details</p>
- 
-                 </mat-menu>
-        </li>
+                <app-notif-icon></app-notif-icon>
            <li *ngIf="connectService.userConnected()">
-            
-            <button mat-button routerLink="/s" routerLinkActive="active">
-            <mat-icon>groups</mat-icon>
-            </button>
+              <app-groups-icon></app-groups-icon>
+          
           </li>
 
     </ul>
@@ -107,29 +28,7 @@
       <button>login</button>
       <button>register</button>
     </div>
-    <div class="profile-state" *ngIf="connectService.userConnected()">
-        <img src="../../../assets/rami-al-zayat-w33-zg-dNL4-unsplash.jpg" width="50px" height="50px" alt="">
-        <p class="username">{{ connectService.userfullName() }}</p>
-        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-            <ion-icon name="arrow-down-circle-outline"></ion-icon>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item routerLink="/showProfile">
-              <mat-icon>account_circle</mat-icon>
-              <span>My profile</span>
-            </button>
-            
-            <button mat-menu-item >
-              <mat-icon>settings</mat-icon>
-              <span>settings</span>
-            </button>
-            
-            <button mat-menu-item (click)="logout()">
-              <mat-icon>logout</mat-icon>
-              <span>logout</span>
-            </button>
-          </mat-menu>
-    </div>
+    <app-profile-state></app-profile-state>
 
 </div>
 

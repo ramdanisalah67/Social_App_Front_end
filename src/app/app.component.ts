@@ -13,13 +13,11 @@ export class AppComponent  implements OnInit{
   isConnected:boolean=false
   isLoading = true;
 
-  constructor(public checkService:LoadingService,private router:Router){
+  constructor(public loadService:LoadingService,private router:Router){
   }
   ngOnInit(): void {
 
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 3000); // Adjust the timeout duration as needed
+   
   }
   
 

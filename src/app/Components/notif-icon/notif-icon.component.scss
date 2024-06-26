@@ -1,0 +1,114 @@
+
+ button {
+  display: flex;
+  display: flex;
+  flex-grow: 0.5;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+}
+ button mat-icon {
+  font-size: 30px;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+
+
+}
+
+
+
+.boite-notification .notif{
+  display: flex;
+  justify-content: flex-start; align-items: center;
+  padding: 15px 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 95%;
+}
+
+.boite-notification .notif:hover{
+
+  background-color: rgb(218, 218, 218);
+
+}
+.boite-notification .notif img{
+  border-radius: 100%;
+  margin-left: 15px ;
+}
+.boite-notification .notif .username{
+  width: 75%;
+  position: relative;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.boite-notification .notif .username span{
+  font-size: 14px;
+  position: relative;
+  top: 5px;
+
+
+}
+.boite-notification .notif ion-icon{
+  font-size: 35px;
+  cursor: pointer;
+  padding: 5px 8px;
+  border-radius: 100%;
+  margin: 0px 8px;
+}
+.boite-notification .notif ion-icon:hover{
+  background-color: rgb(238, 241, 243);
+}
+
+
+.show-all-message {
+  position: fixed;
+  bottom: -5px;
+  left: 180px;
+  color: gray;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+
+.notif {
+position: relative;
+}
+.notif p i {
+  position: absolute;
+  font-size: 25px;
+  top: 47px;
+  left: 65px;
+}
+
+
+.image {
+  padding-right: 16px
+}
+
+
+.badge {
+background-color: rgb(204, 52, 52);
+position: absolute;
+width: 22px;
+height: 22px;
+color: white;
+border-radius: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+right: 17px;
+bottom: -3px;
+
+}
+
+
+.active-notif {
+background-color: rgb(206, 209, 203);
+}
+
+

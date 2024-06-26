@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Post } from 'src/app/Models/Post';
+import { ImageProcessingService } from 'src/app/Services/image-processing.service';
 import { PostService } from 'src/app/Services/post.service';
 
 @Component({
@@ -11,8 +12,8 @@ import { PostService } from 'src/app/Services/post.service';
 })
 export class ShowPostDetailsDialogComponent  implements OnInit {
   post:Post= new Post()
-  constructor(public dialogRef: MatDialogRef<ShowPostDetailsDialogComponent>,private sanitizer: DomSanitizer,private postService:PostService,
-    @Inject(MAT_DIALOG_DATA) public data:any
+  constructor(public dialogRef: MatDialogRef<ShowPostDetailsDialogComponent>,private sanitizer: DomSanitizer,private postService:PostService,private imageProcess:ImageProcessingService
+    ,@Inject(MAT_DIALOG_DATA) public data:any
 
   ) 
   {
@@ -21,6 +22,7 @@ export class ShowPostDetailsDialogComponent  implements OnInit {
 
   ngOnInit() {
     this.post = this.data.post
+    this.imageProcess.createImage(this.post)
   }
 
 

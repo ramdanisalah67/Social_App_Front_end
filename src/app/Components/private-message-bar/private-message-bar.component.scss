@@ -6,11 +6,199 @@
 
 
 
-.message-bar {
+.bar-message {
     position: absolute;
     bottom: 0px;
     right: 200px;
-    height: 500px;
-    width: 500px;
-    background-color: rgb(235, 232, 229);
+    height: 600px;
+    width: 30%;
+    background-color: rgb(228, 221, 216);
 }
+
+.header {
+    display:  flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(200, 211, 211);
+}
+
+.header .user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} 
+.state {
+    padding-left: 8px;
+    padding-top: 8px;
+}
+.header .user img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+.option {
+    display: flex;
+    justify-content: center;
+}
+
+.zone-message {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 380px;
+    overflow-y: scroll;
+
+}
+
+.message-source img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+.message-source {
+    float: right;
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 5px;
+
+}
+
+.message-destination {
+    float: left;
+    display: flex;
+  margin: 5px;
+}
+.message-destination img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%
+}
+
+
+.message-source .content {
+    background-color: rgb(134, 152, 161);
+    padding: 15px;
+    margin-right: 5px;
+    margin-top: 10px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.message-destination .content {
+    background-color: rgb(239, 233, 245);
+    padding: 15px;
+    margin-left: 5px;
+    margin-top: 10px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+    max-width: 80%;
+
+}
+
+
+.message-send {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0px 10px;
+
+}
+
+
+.message-send input {
+    flex-grow: 0.8;
+    border-radius: 8px;
+    border: 0px;
+    height: 40px;
+    padding-left: 10px;
+}
+
+
+.message-send .icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 94px;
+} 
+.message-send .icons ion-icon {
+   
+
+    margin: 0px 5px;
+}
+
+.emoji-picker-container {
+    width: 300px; /* Set the desired width */
+    height: 200px; /* Set the desired height */
+  }
+  
+  /* Or, if you want to target the emoji-mart component directly */
+  
+  emoji-mart {
+    position: absolute;
+    top: -30px;
+  }
+
+
+  .icons button {
+    font-size: 30px;
+  }
+
+  .message-community {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 151px;
+  }
+
+  .message-community img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+  }
+
+  .bar-files {
+    height: 70px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .bar-files img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin: 0px 10px;
+  }
+  .bar-files video {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin: 0px 10px;
+  }
+
+  .bar-files div {
+    position: relative;
+  }
+
+  .bar-files ion-icon {
+    font-size: 25px;
+    color: red;
+    position: absolute;
+    right: 0px;
+    top: -10px;
+    cursor: pointer;
+  }
+
+
+  mat-icon {
+    cursor: pointer;
+  }

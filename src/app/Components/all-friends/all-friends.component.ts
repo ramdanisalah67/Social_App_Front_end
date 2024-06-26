@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FriendReqRes } from 'src/app/Models/FriendReqRes';
 import { AuthService } from 'src/app/Services/auth.service';
 import { FriendsService } from 'src/app/Services/friends.service';
+import { ImageProcessingService } from 'src/app/Services/image-processing.service';
 
 @Component({
   selector: 'app-all-friends',
@@ -12,7 +14,7 @@ export class AllFriendsComponent   implements OnInit {
   friends:any[] =[]
   message:string[]=[]
   activeTab: string = 'suggestions';
-  constructor(private friendService:FriendsService,private authService:AuthService) { }
+  constructor(private friendService:FriendsService,private authService:AuthService,private router:Router,private imageProcess:ImageProcessingService) { }
     ngOnInit() {
       let email = localStorage.getItem('email')
       if(email) {
@@ -22,13 +24,21 @@ export class AllFriendsComponent   implements OnInit {
             console.log(data)
   
             this.friends= data
+            for (let index = 0; index < this.friends.length; index++) {
+              this.imageProcess.createImage(this.friends[index].user)
+              
+            }
             console.log(this.friends)
           
           })
       }
     }
   
-  
+    showProfile(email:string){
+      console.log(email)
+      localStorage.setItem("target",email)
+      this.router.navigate(['userProfile'])
+    }
  
   
     rejectInvitation(email_suggestion:string,i:number){

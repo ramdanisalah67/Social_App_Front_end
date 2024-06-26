@@ -1,0 +1,47 @@
+<div class="header" mat-dialog-title>
+   <h2>Friends</h2>   
+   <div class="child-header">
+    <input type="text" placeholder="search friends ..">
+    <button mat-icon-button  aria-label="Example icon-button with a menu" mat-dialog-close>
+      <ion-icon name="close-circle-outline"></ion-icon>
+    </button>
+   </div>
+  </div>
+
+
+<mat-dialog-content>
+  <div class="content">
+    <div class="friends">
+      
+     
+      <div class="friend" *ngFor="let friend of friends">
+        <div class="profile">
+          <img [src]="friend.user.images[0].url" alt="">
+        <p>{{friend.user.fullName}} <span> {{friend.numberOfCommonFriends}} commun</span></p>
+        </div>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <ion-icon name="arrow-down-circle-outline"></ion-icon>
+        </button>
+        <mat-menu #menu="matMenu" class="options">
+          <button mat-menu-item routerLink="/showProfile">
+            <mat-icon>account_circle</mat-icon>
+            <span>Show profile</span>
+          </button>
+          
+          <button mat-menu-item >
+            <mat-icon>delete</mat-icon>
+            <span>Delete FriendShip</span>
+          </button>
+          
+          <button mat-menu-item >
+            <mat-icon>block</mat-icon>
+            <span>Block</span>
+          </button>
+        </mat-menu>
+      </div>
+      
+      
+    </div>
+  </div>
+</mat-dialog-content>
+

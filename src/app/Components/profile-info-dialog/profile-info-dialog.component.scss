@@ -1,0 +1,31 @@
+
+
+.info  {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 15px;
+    
+}
+
+.info p {
+    width: 150px;
+    color: black;
+}
+
+.info mat-form-field {
+    display: flex;
+    flex-grow: 0.6;
+    padding-left: 15px;
+}
+
+
+mat-dialog-content{
+    height: 82%;
+}
+mat-dialog-actions{
+    display: flex;
+    justify-content: space-between;
+}
+
+

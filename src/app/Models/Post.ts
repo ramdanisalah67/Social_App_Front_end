@@ -4,4 +4,4 @@ export class Post {
     email: string;
     text:string="";
     images:ImageHandle[]=[];
-}
+    video:ImageHandle}

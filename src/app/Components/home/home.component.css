@@ -1,213 +1,225 @@
 * {
     padding: 0;
     margin: 0;
-}
-.home-content {
-    width: 950px;
-    border-radius: 10px;
     color: black;
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #ffffff;
-    height: 800px;
-    overflow-y: scroll;
-    position: relative;
-    top: 50px;
-}
-
-.pr-posts {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-}
-
-.posts {
-    width: 90%;
-    margin-top: 50px;
-    top: 80px;
-    border-radius: 25px;
-    border: 2px solid;
-    background-color: rgb(186, 195, 196);
-    padding: 20px;
-
-}
-
-
-.post {
-    margin-top: 20px;
-    background: #ffffff;
-    padding: 25px;
-}
-
-
-.post .user {
-    min-width: 200px;
-    max-width: 300px;
-    height: 60px;
-    background-color: white;
-}
-
-.fix-taille {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100%;
-}
-.fix-taille img {
-    width:50px;
-    height:50px;
-    border-radius:50%
-}
-
-
-
-.username-time {
-    padding-left: 10px;
-    position: relative;
-    top: 7px;
-}
-
-.username-time p {
-    font-weight: bold;
-
-}
-
-.username-time span {
-    font-size: 15px;
-}
-
-.text {
-    background-color: rgb(216, 208, 198);
-    padding: 10px;
-    line-height: 20px;
-    width: 90%;
-    margin: auto;
-    border-radius: 8px;
-}
-
-.mg {
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
-.media {
-    background-color: antiquewhite;
-    width: 700px;
-    height: 400px;
-    margin: auto;
-    border-radius: 25px;
-}
-.image{
- width: 100%;
- height: 100%;
- border-radius: 25px;
-
-}
-
-
-.pos-buttons {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-
-}
-.buttons {
-    width : 25%;
-    margin-left: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.buttons i {
-    font-size: 28px;
-    width: 70px;
-    height: 40px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    
-
-}
-.buttons i:hover {
-    background-color: rgba(153, 151, 151, 0.247);
-}
-.buttons ion-icon {
-    font-size: 30px;
-    width: 70px;
-    height: 40px;
-    border-radius: 8px;
-}
-
-.buttons ion-icon:hover {
-    background-color: rgba(153, 151, 151, 0.247);
-    cursor: pointer;
-
-}
-.comments {
-    display: none;
-}
-.display-comments {
-    width: 800px;
-    height: 400px;
-    background-color: rgb(169, 149, 187);
-    margin: auto;
-    display: block;
-}
-
-
-.createPost {
-    background: #b5bcc2;
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    margin: auto;
-    position: relative;
-    top: 30px;
-    padding: 10px;
-}
-.createPost img {
-    border-radius: 50%;
-    
-}
-.createPost .icons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 110px;
-    
-}
-.createPost .icons ion-icon {
-    font-size: 35px;
-    padding: 2px;
-    border-radius: 5px;
-    
-}
-.createPost input {
-    width: 350px;
-    padding-left: 10px;
-    border-radius: 5px;
-    border: 0px;
-}
-
-.createPost .icons ion-icon:hover {
-  background-color: gray;
-    cursor: pointer;
 }
 
 .home-parent {
     display: flex;
     justify-content: space-around;
-    background-image: url('../../../assets/AdobeStock_389328016_Editorial_Use_Only.webp');
-    background-size: cover;
+    background-color: rgb(233, 225, 225);
+    width: 100%;  
+    height: 100%;
+    align-items: flex-start;
+}
+
+.super-parent {
+    display: flex;
+   flex-direction: column;
+    background-color: rgb(233, 225, 225);
     width: 100%;
     height: 100vh;
-    align-items: center;
+   
+    align-items: flex-start;
 }
 
 
 
+
+.hide {
+    height: 45px;
+    width: 100%;
+}
+
+
+app-state-user {
+    display: flex;
+    flex-grow: 0.3;
+    display: flex;
+    justify-content: center;
+}
+
+app-bord-details {
+    display: flex;
+    flex-grow: 0.3;
+    display: flex;
+    justify-content: center;
+}
+
+.home-content{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0.5;
+    max-height: 811px;
+    background-color: white;
+   
+}
+
+.home-content .header {
+   
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 0px;
+    
+}
+.header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+.header input {
+    display: flex;
+    flex-grow: 0.8;
+    border: 2px solid rgb(243, 241, 238);
+    border-radius: 8px;
+    height: 35px;
+    padding: 10px 10px 15px 15px;
+    height: 60px;
+}
+
+.header .icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header .icons ion-icon {
+    font-size: 35px;
+}
+
+
+
+.home-content .posts {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+
+
+.home-content .posts .post .cadre {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.cadre .profile {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    
+}
+
+.cadre .profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+.cadre .profile p {
+    margin-left: 10px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-top: 14px;
+    font-weight: bold;
+}
+
+.cadre .profile p span {
+    font-size: 14px;
+}
+
+.cadre ion-icon {
+    font-size: 30px;
+}
+.cadre button {
+    padding: 10px;
+}
+
+.post {
+    padding: 25px 15px;
+    border-bottom: 12px solid  rgb(233, 225, 225);
+}
+
+.post .content  {
+    display: flex;
+    flex-direction: column;
+}
+
+.post .content .text {
+padding: 5px 15px;
+}
+
+.post .content .media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.post .content .media img {
+    width: 450px;
+    height: 500px;
+    border-radius: 10px;
+}
+.post .content .media video {
+    width: 450px;
+    height: 500px;
+    border-radius: 10px;
+}
+.post .content .buttons {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40px;
+}
+.buttons-text {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 280px;
+}
+.buttons-text p i {
+    font-size: 35px;
+}
+
+.post .content .buttons ion-icon {
+    font-size: 45px;
+}
+.post .content .buttons i {
+    font-size: 35px;
+    
+}
+
+.post .content .buttons p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:80px ;
+}
+
+.interaction {
+    display: flex;
+    justify-content: center;
+}
+
+
+.loading-indicator, .end-of-posts {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 16px;
+    color: #666;
+  }
+
+  .success {
+    padding: 25px;
+    margin: 15px;
+  }
+
+
+  .custom-snackbar .mat-simple-snackbar-action {
+    color:  white; /* Replace with your desired button color */
+  }

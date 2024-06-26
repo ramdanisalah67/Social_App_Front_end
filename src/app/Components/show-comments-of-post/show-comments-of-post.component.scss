@@ -1,0 +1,288 @@
+*{
+    padding: 0;
+    margin: 0;
+    color: black;
+}
+
+
+
+.parent {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    
+}
+
+.parent .cadre {
+    display:flex;
+    align-items: center;
+    position: fixed;
+    width: 43%;
+    background-color: white;
+
+}
+.parent .cadre .profile {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 0.8;
+    background-color: white;
+    padding: 15px 15px;
+
+}
+.parent .cadre .profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+
+}
+
+.parent .cadre .profile p{
+    display:  flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    font-weight: bold;
+    padding-left: 18px;
+    padding-top: 8px;
+}
+.parent .cadre .profile p span {
+    font-size: 14px;
+    color: gray;
+}
+.parent .cadre ion-icon {
+    font-size: 35px;
+    margin-right: 35px;
+}
+
+
+.parent .text {
+    padding: 0px 25px;
+}
+.media {
+    display: flex;
+    justify-content: center;
+    width: 370px;
+    flex-grow: 1;
+    
+}
+.media img {
+    width: 370px;
+    height: 420px;
+    border: 12px solid rgb(236, 230, 230);
+    margin-left: 55px;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 5px rgb(204, 193, 193);
+}
+
+.image .buttons {
+        width: 100px;
+
+}
+
+.image .buttons i {
+    font-size: 30px;
+}
+
+.hiden {
+    height: 100px;
+}
+
+.comments-bar {
+    width: 95%;
+    margin: auto;
+}
+
+.comments-bar .comment {
+    margin-bottom: 15px;
+}
+.comments-bar .comment .user-comment-profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 25%;
+}
+
+.user-comment-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+.user-comment-profile p {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 9px;
+    font-weight: bold;
+    padding-left: 18px;
+    padding-top: 0px;
+
+}
+.user-comment-profile p span  {
+    color: gray;
+    font-size: 14px;
+}
+
+.user-comment-profile ion-icon {
+    font-size: 35px;
+}
+
+.comment .comment-text {
+    width: 90%;
+    margin: auto;
+    background: #e2dfdf;
+    padding: 15px;
+    margin-top: 12px;
+}
+.image-comment{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.comment-text img {
+    width: 90%;
+    height: 500px;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    margin: auto;
+    border-radius: 18px;
+}
+.icons i {
+    font-size: 25px;
+    margin: 0px 5px;
+    color: gray;
+    cursor: pointer;
+}
+.icons i:hover {
+    color: black;
+}
+
+.icons span {
+    font-size: 16px;
+}
+
+.comment-zone {
+    position: fixed;
+    bottom: 0px;
+    width: 43%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 10px;
+}
+
+.comment-zone div:nth-child(2) .input {
+    width: 95%;
+    background-color: rgb(221, 69, 69);
+}
+
+.comment-zone img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+.comment-zone .reply-user{
+    float: left;
+}
+textarea {
+    width: 75%;
+    height: 100px;
+    border: 0px;
+    border: 2px solid gray;
+    padding: 10px 25px;
+
+}
+    .comment-zone .options {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+    }
+
+
+    .comment-zone .options ion-icon {
+        font-size: 33px;
+        cursor: pointer;
+    }
+
+
+    .hidden-down {
+        width: 100%;
+        height: 226px;
+        background: white;
+    }
+
+    .comment-zone .comment-media{
+     font-size: 25px;
+     padding: 15px ;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+    }
+
+    .comment-zone .text-comment{
+        display: flex;
+        width: 95%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .emoji {
+        position: absolute;
+        left: 94px;
+        bottom: 10px;
+    }
+    .comment-media {
+        display: flex;
+        justify-content: space-between;
+        width: 70%;
+    }
+    
+    .comment-media .image-reply {
+        display: flex;
+        padding-left: 18px;
+        position: relative  ;
+        align-items: center;
+        width: 200px;
+    }
+    .comment-media .image-reply ion-icon {
+        position: absolute;
+        right: 30px;
+        top: -10px;
+    }
+    .comment-media .image-reply img {
+        margin-left: 10px;
+    }
+    .comment-media .image-reply p {
+        font-size: 16px;
+    }
+
+
+    .comment-media .image-send {
+        display: flex;
+        justify-content: flex-end;
+        position: relative;
+    }
+
+    .comment-media .image-send ion-icon{
+        position: absolute;
+        right: -24px;
+        top: -7px;
+    }
+    .comment-media img:nth-child(1) {
+        border: 2px solid blue;
+    }
+    .comment-media img:nth-child(2) {
+        border: 2px solid green;
+    }

@@ -21,12 +21,12 @@ export class StateUserComponent implements OnInit {
     let email = localStorage.getItem("email") || ""
         this.stateService.friendsOnline(email).subscribe(data=>{
           this.friends = data
-          console.log(this.friends)
+          console.log("try to find friend state ")
+          console.log(data)
         })
 
         this.webSocketService.getMessages().subscribe(
           (state: any) => {
-            console.log(state)
 
              let index = this.friends.findIndex(u=>u.email == state.email)
              if(state.state == 'online'){

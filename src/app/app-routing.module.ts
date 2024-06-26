@@ -17,8 +17,16 @@ import { RequestComponent } from './Components/request/request.component';
 import { NoFriendUserComponent } from './Components/no-friend-user/no-friend-user.component';
 import { AllFriendsComponent } from './Components/all-friends/all-friends.component';
 import { ConfirmationfriendRequestComponent } from './Components/confirmationfriend-request/confirmationfriend-request.component';
+import { NotifIconComponent } from './Components/notif-icon/notif-icon.component';
+import { SettingDialogComponent } from './Components/setting-dialog/setting-dialog.component';
+import { SettingAccountComponent } from './Components/setting-account/setting-account.component';
+import { PermissionsPersonalInfoComponent } from './Components/permissions-personal-info/permissions-personal-info.component';
+import { PermissionsPostComponent } from './Components/permissions-post/permissions-post.component';
+import { UserprofilePageComponent } from './Components/userprofile-page/userprofile-page.component';
 
 const routes: Routes = [
+  {path:'setting',component:SettingDialogComponent},
+
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'navbar',component:NavBarComponent},
@@ -42,7 +50,17 @@ const routes: Routes = [
   {path:'showProfile',component:ShowProfileComponent},
   {path:'noFriends',component:NoFriendUserComponent},
   {path:'request',component:RequestComponent},
+  {path:'emoji',component:TestDragElementComponent},
 
+  {path:'userProfile',component:UserprofilePageComponent},
+
+  {path:'setting',component:SettingDialogComponent,children:[
+    {path:'userInfoPermissions',component:PermissionsPersonalInfoComponent},
+    {path:'PostsPermissions',component:PermissionsPostComponent},
+
+       ]
+  },
+  {path:'private-message/:boiteItemId',component:UserprofilePageComponent},
 
 
 ];

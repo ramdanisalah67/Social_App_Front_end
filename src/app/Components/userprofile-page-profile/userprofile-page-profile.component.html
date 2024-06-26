@@ -1,0 +1,10 @@
+<div class="image-profile">
+  <img [src]="userProfile.images[0].url" alt="">
+</div>
+<div class="info">
+<div class="username">
+  <p class="h5">{{userProfile.fullName}}</p>
+  <p class="h6 text-secondary" (click)="displayFriends()" *ngIf="friends">{{friends.length}} friends</p>
+</div>
+
+</div>

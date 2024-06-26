@@ -1,3 +1,8 @@
-<div cdkDrag style="width: 200px; height: 200px; background-color: lightblue;">
-  Drag me!
+<input type="text" [(ngModel)]="message" placeholder="Type your message here...">
+<button (click)="showEmojiPicker = !showEmojiPicker">😊</button>
+<div *ngIf="showEmojiPicker">
+  <emoji-mart style
+    (emojiClick)="addEmoji($event)"
+    [i18n]="{ search: 'Recherche', categories: { search: 'Résultats de recherche', recent: 'Récents' } }"
+  ></emoji-mart>
 </div>

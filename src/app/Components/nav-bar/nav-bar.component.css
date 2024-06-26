@@ -6,19 +6,15 @@
 
 
 .context {
-    position: absolute;
-    left: 24px;
-    top: 35px;
+   
     display:  flex;
     justify-content: space-around;
     align-items: center;
     background-color: white;
-    width: 1800px;
+    width: 100%;
     height: 70px;
     margin: auto;
     padding: 0px 20px;
-    border-radius: 10px;
-    border: 1px solid;
 }
 
 
@@ -42,7 +38,7 @@
     display: flex;
     flex-grow: 1;
     height: 100%;
-
+  
 }
 .context ul li button {
     display: flex;
@@ -50,7 +46,7 @@
     justify-content: center;
     height: 100%;
     align-items: center;
-
+  background: gray;
 }
 .context ul li button mat-icon {
     font-size: 30px;
@@ -63,28 +59,6 @@
 
 }
 
-.context .profile-state {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 300px;
-}
-
-.context .profile-state img {
-    border-radius: 100%;
-}
-
-
-.context .profile-state .username {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 75%;
-    position: relative;
-    top: 8px;
-    padding-left: 18px;  
-    font-size: 18px;  
-}
 
 
 
@@ -96,19 +70,15 @@
 
 
 .context2 {
-    position: absolute;
-    left: 528px;
-    top: 35px;
+    
     display:  flex;
     justify-content: space-around;
     align-items: center;
     background-color: white;
-    width: 800px;
+    width: 100%;
     height: 70px;
     margin: auto;
     padding: 0px 20px;
-    border-radius: 10px;
-    border: 1px solid;
 }
 
 
@@ -170,147 +140,9 @@
     margin: 0px 5px;
 }
 
-::ng-deep .messages.mat-mdc-menu-panel  .mat-mdc-menu-content {
-    width: 580px !important;
-    height: 535px !important;
-    display: flex;
-    flex-direction: column;
-    overflow-y: scroll; /* Ensure no horizontal scroll */
-  }
 
 
 
-  ::ng-deep .messages.mat-mdc-menu-panel {
-    max-width: 600px !important;
-    height: 600px !important;
-    padding: 20px;
-  }
-
-
-  
-
-  .boite-message .user{
-    display: flex;
-    justify-content: flex-start; align-items: center;
-    padding: 15px 0px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    border-radius: 10px;
-    width: 95%;
-  }
-  .boite-message .user:hover{
-
-    background-color: rgb(218, 218, 218);
-
-  }
-  .boite-message .user img{
-    border-radius: 100%;
-    margin-left: 15px ;
-  }
-  .boite-message .user .username{
-    width: 75%;
-    position: relative;
-    top: 5px;
-    padding-left: 20px;
-    display: flex;
-    flex-direction: column;
-  }
-  .boite-message .user .username span{
-    font-size: 14px;
-    position: relative;
-    top: 5px;
-
-
-  }
-  .boite-message .user ion-icon{
-    font-size: 35px;
-    cursor: pointer;
-    padding: 5px 8px;
-    border-radius: 100%;
-  }
-  .boite-message .user ion-icon:hover{
-    background-color: rgb(238, 241, 243);
-  }
-
-
-  .show-all-message {
-    position: fixed;
-    bottom: -5px;
-    left: 180px;
-    color: gray;
-    cursor: pointer;
-    text-decoration: underline;
-  }
-
-  .chat {
-    margin-left: 10px;
-  }
-
-
-  .boite-notification .notif{
-    display: flex;
-    justify-content: flex-start; align-items: center;
-    padding: 15px 15px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    border-radius: 10px;
-    width: 95%;
-  }
-
-  .boite-notification .notif:hover{
-
-    background-color: rgb(218, 218, 218);
-
-  }
-  .boite-notification .notif img{
-    border-radius: 100%;
-    margin-left: 15px ;
-  }
-  .boite-notification .notif .username{
-    width: 75%;
-    position: relative;
-    padding-left: 20px;
-    display: flex;
-    flex-direction: column;
-  }
-  .boite-notification .notif .username span{
-    font-size: 14px;
-    position: relative;
-    top: 5px;
-
-
-  }
-  .boite-notification .notif ion-icon{
-    font-size: 35px;
-    cursor: pointer;
-    padding: 5px 8px;
-    border-radius: 100%;
-    margin: 0px 8px;
-  }
-  .boite-notification .notif ion-icon:hover{
-    background-color: rgb(238, 241, 243);
-  }
-
-
-  .show-all-message {
-    position: fixed;
-    bottom: -5px;
-    left: 180px;
-    color: gray;
-    cursor: pointer;
-    text-decoration: underline;
-  }
-
-
-.notif {
-  position: relative;
-}
-  .notif p i {
-    position: absolute;
-    font-size: 25px;
-    top: 47px;
-    left: 65px;
-  }
 
 
   .image {
@@ -318,22 +150,34 @@
   }
 
 
-.badge {
-  background-color: rgb(204, 52, 52);
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  color: white;
-  border-radius: 100%;
+
+
+
+
+
+.context ul   app-notif-icon {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  right: 17px;
-  bottom: -3px;
-
+  flex-grow: 1;
+  height: 100%;
 }
 
-
-.active-notif {
-  background-color: rgb(206, 209, 203);
+.context ul   app-message-icon{
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
 }
+.context ul   app-friend-icon{
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+}
+.context ul   app-home-icon{
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+  }
+  .context ul   app-groups-icon{
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+  }

@@ -1,8 +1,6 @@
 
-<app-loadicon *ngIf="checkService.loaded()"></app-loadicon>
 
-    <app-nav-bar></app-nav-bar>
-
+        <app-loadicon *ngIf="loadService.loaded()"></app-loadicon>
 
         <div ><router-outlet ></router-outlet></div>
 

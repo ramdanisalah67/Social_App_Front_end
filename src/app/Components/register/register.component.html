@@ -1,4 +1,4 @@
-
+<app-nav-bar></app-nav-bar>
 <div class="body">
 <div class="context">
   
@@ -44,11 +44,10 @@
           </mat-form-field>
         </form>
    
-        <div class="message text-success" *ngIf="Message.code == '201'">{{ Message.message }}</div>
         <div class="message text-danger" *ngIf="Message.code == '400'">{{ Message.message }}</div>
 
        
-        <div class="drag" appDrag (files)="fileDroped($event)">
+        <div class="drag" appImagedrag (files)="fileDroped($event)">
           <p>choose profile Picture :</p>
           <span> drag and drop or <a (click)="profilePicture.click()">browse</a> files</span>
            
@@ -57,7 +56,7 @@
           </div>
         </div>
      
-        <input type="file"  multiple class="d-none" #profilePicture (change)="onProfilePictureSelected($event)">
+        <input type="file"   class="d-none" #profilePicture (change)="onFileSelected($event)">
     <div class="buttons">
         <button mat-raised-button color="primary" (click)="register()">register</button>
     </div>

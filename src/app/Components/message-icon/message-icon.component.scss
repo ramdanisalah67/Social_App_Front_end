@@ -1,0 +1,127 @@
+
+::ng-deep .messages.mat-mdc-menu-panel  .mat-mdc-menu-content {
+    width: 580px !important;
+    height: 535px !important;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll; /* Ensure no horizontal scroll */
+  }
+
+
+
+  ::ng-deep .messages.mat-mdc-menu-panel {
+    max-width: 600px !important;
+    height: 600px !important;
+    padding: 20px;
+  }
+
+
+  
+ button {
+    display: flex;
+    display: flex;
+    flex-grow: 0.5;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+  }
+   button mat-icon {
+    font-size: 30px;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+  
+  
+  }
+  
+  
+
+  .boite-message .user{
+    display: flex;
+    justify-content: flex-start; align-items: center;
+    padding: 15px 0px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 95%;
+  }
+  .boite-message .user:hover{
+
+    background-color: rgb(218, 218, 218);
+
+  }
+  .boite-message .user img{
+    border-radius: 100%;
+    margin-left: 15px ;
+  }
+  .boite-message .user .username{
+    width: 75%;
+    position: relative;
+    top: 5px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .boite-message .user .username span{
+    font-size: 14px;
+    position: relative;
+    top: 5px;
+
+
+  }
+  .boite-message .user ion-icon{
+    font-size: 35px;
+    cursor: pointer;
+    padding: 5px 8px;
+    border-radius: 100%;
+    margin-right: 8px;
+  }
+  .boite-message .user ion-icon:hover{
+    background-color: rgb(238, 241, 243);
+  }
+
+
+  .show-all-message {
+    position: fixed;
+    bottom: -5px;
+    left: 180px;
+    color: gray;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .chat {
+    margin-left: 10px;
+  }
+  
+  
+  .active-notif {
+  background-color: rgb(206, 209, 203);
+  }
+  
+  
+  .date {
+    margin-right: 30px;
+    font-size: 18px;
+  }
+
+  .badge {
+    background-color: rgb(204, 52, 52);
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    color: white;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 17px;
+    bottom: -3px;
+    
+    }
+
+    .text-normal {
+    font-weight: normal;
+    }

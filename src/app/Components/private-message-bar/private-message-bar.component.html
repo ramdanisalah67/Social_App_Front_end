@@ -1,6 +1,79 @@
-<div class="message-bar">
-  <div class="header">
-    <p>Messagerie</p>
-    <ion-icon name="close-outline"></ion-icon>
+<div class="bar-message" cdkDrag *ngIf="messageService.isOpened()">
+  <div *ngIf="showEmojiPicker">
+    <emoji-mart style
+      (emojiClick)="addEmoji($event)"
+      [i18n]="{ search: 'Recherche', categories: { search: 'Résultats de recherche', recent: 'Récents' } }"
+    ></emoji-mart>
   </div>
+      
+    <div class="header">
+        <div class="user">
+            <img src="../../../assets/AdobeStock_389328016_Editorial_Use_Only.webp" alt="">
+            <div class="state"><span>yassine </span><p>online <span>icon</span></p> </div>
+        </div>
+        <div class="option">
+            <button mat-button >
+                <mat-icon>minimize</mat-icon>
+              </button>
+              <button mat-button (click)="closewindow()">
+                <mat-icon>close</mat-icon>
+              </button>
+        </div>
+    </div>
+    <div class="zone-message"  #messageContainer>
+       
+        <div *ngFor="let item of conversation.messageRefs" 
+        [ngClass]="{'message-source': item.owner == email, 
+                    'message-destination': item.owner == conversation.friend.email,'message-community':item.owner == null }">
+       <img *ngIf="item.owner == email" src="../../../assets/photo-1521459467264-802e2ef3141f.avif" alt="">
+       <img *ngIf="item.owner != email" src="../../../assets/rodion-kutsaiev-0VGG7cqTwCo-unsplash.jpg" alt="">
+       <div class="content">
+
+        <span class="chat-text" *ngIf="item.message.length>0">{{item.message}}</span>
+  
+       </div>
+    
+      </div>
+        
+    </div>
+    <div class="bar-files">
+      <div class="images" *ngFor="let image of messageRef.images;let i=index">
+        <img [src]="image.url" alt="">
+        <ion-icon name="close-outline" (click)="removeImage(i)"></ion-icon>
+      </div>
+      <div class="video" *ngIf="messageRef.video">
+        <video [src]="messageRef.video.url" width="100px" height="100px" controls></video>
+        <ion-icon name="close-outline" (click)="removeVideo()"></ion-icon>
+
+      </div>
+    </div>
+
+    <div class="message-send">
+      <input type="file" class="input-image d-none" #myVideo (change)="onVideoSelected($event)"  >
+
+      <input type="file" class="input-image d-none" #myImage (change)="onFileSelected($event)"  >
+            <input type="text" placeholder="type message here .." [(ngModel)]="messageRef.message">
+            <div class="icons">
+                <mat-icon  (click)="sendMessage()">send</mat-icon>
+                <button (click)="showEmojiPicker = !showEmojiPicker">😊</button>
+
+                    <mat-icon [matMenuTriggerFor]="menu">add</mat-icon>
+
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="myImage.click()">
+                          <mat-icon style="color: green;">image</mat-icon>
+                          <span>upload image </span>
+                        </button>
+                        <button mat-menu-item (click)="myVideo.click()" >
+                          <mat-icon style="color: cadetblue;">videocam</mat-icon>
+                          <span>upload video</span>
+                        </button>
+                        <button mat-menu-item>
+                          <mat-icon style="color:orange">emoji_emotions</mat-icon>
+                          <span>emoji</span>
+                        </button>
+                      </mat-menu>
+              
+            </div>
+    </div>
 </div>

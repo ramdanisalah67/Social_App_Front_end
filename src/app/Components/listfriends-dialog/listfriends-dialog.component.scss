@@ -1,0 +1,109 @@
+
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+::ng-deep .options.mat-mdc-menu-panel  .mat-mdc-menu-content {
+    width: 200px !important;
+    height: 171px !important;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll; /* Ensure no horizontal scroll */
+  }
+
+
+
+  ::ng-deep .options.mat-mdc-menu-panel {
+    max-width: 270px !important;
+    height: 211px!important;
+    padding: 20px;
+  }
+
+mat-dialog-content {
+    height: 80%;
+}
+h2 {
+    padding: 15px 25px;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+}
+.header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.header h2{
+   flex-grow: 0.2;
+}
+.header .child-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 0.7;
+}
+.header input{
+    width: 280px;
+    height: 40px;
+    border: 2px solid rgb(192, 192, 185);
+    padding: 5px 15px;
+    margin-left: 65px;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+
+.content .friends {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding:25px;
+
+}
+
+
+.content .friends .friend {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    border: 2px solid gray;
+    padding:15px;
+
+}
+
+.content .friends .friend .profile  {
+    display: flex;
+    flex-grow: 0.2;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content .friends .friend .profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+.content .friends .friend .profile  p{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 10px;
+    color: black;
+}
+.content .friends .friend .profile  p span {
+    font-size: 14px;
+    color: gray;
+    cursor: pointer;
+}

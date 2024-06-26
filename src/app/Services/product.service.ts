@@ -15,9 +15,7 @@ export class ProductService {
 
   public addProduct(product:FormData):Observable<any>{
     return this.http.post(this.API+'add',product,{
-      headers: new HttpHeaders({
-        'enctype': 'multipart/form-data'
-      })
+      headers: { 'Content-Type': 'multipart/form-data' }
     })
   }
 

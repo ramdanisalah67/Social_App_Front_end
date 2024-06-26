@@ -1,0 +1,26 @@
+<div class="image-profile">
+  <img [src]="userProfile.images[0].url" alt="">
+</div>
+<div class="info">
+<div class="username">
+  <p class="h5">ramdani salah-eddine</p>
+  <p class="h6 text-secondary" (click)="displayFriends()">{{friends.length}} friends</p>
+</div>
+<div class="edit-profile">
+  <button mat-icon-button [matMenuTriggerFor]="menu"  aria-label="Example icon button with a vertical three dot icon">
+    <mat-icon>edit</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" class="picture">
+    <button mat-menu-item (click)="updateProfileImage()">
+      <mat-icon>image</mat-icon>
+      <span>change Profile Picture</span>
+    </button>
+    
+    <button mat-menu-item >
+      <mat-icon>image</mat-icon>
+      <span>change Cover Picture</span>
+    </button>
+    
+  </mat-menu>
+</div>
+</div>

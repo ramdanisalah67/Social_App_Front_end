@@ -38,7 +38,7 @@ export class StateService {
  
   public subscribeToMessages() {
     this.stompClient.subscribe('/user/queue/state', (message: any) => {
-      console.log('Received message user-state:', message);
+      console.log('Received message from userState-service:', message);
       const notification: State = JSON.parse(message.body);
       this.messageSubject.next(notification);
      

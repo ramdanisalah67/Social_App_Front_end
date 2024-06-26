@@ -11,14 +11,14 @@
     <div class="user-section" >
       <div class="user" *ngFor="let friend of friends">
         <div class="username">
-          <img src="../../../assets/rodion-kutsaiev-0VGG7cqTwCo-unsplash.jpg" alt="">
-        <p class="h5">{{friend.user.fullName}} <span >25 mutual friends</span></p>
+          <img [src]="friend.user.images[0].url" alt="" (click)="showProfile(friend.user.email)">
+        <p class="h5">{{friend.user.fullName}} <span *ngIf="friend.numberOfCommonFriends>0">{{friend.numberOfCommonFriends}} mutual friends</span></p>
         </div>
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
           <ion-icon name="arrow-down-circle-outline"></ion-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item routerLink="/showProfile">
+          <button mat-menu-item  (click)="showProfile(friend.user.email)">
             <mat-icon>account_circle</mat-icon>
             <span>Show profile</span>
           </button>

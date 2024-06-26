@@ -9,7 +9,7 @@
   </div>
   <div class="users">
       <div class="user" *ngFor="let suggestion of suggestions;let i= index">
-          <img src="../../../assets/socialmedia-1-1024x512.jpg" width="50px" height="50px" alt="">
+          <img src="../../../assets/socialmedia-1-1024x512.jpg" width="50px" height="50px" alt="" (click)="showProfile(suggestion.user.email)">
           <div class="username">{{ suggestion.user.fullName }} <span class="commun" *ngIf="suggestion.numberOfCommonFriends >0">{{ suggestion.numberOfCommonFriends }} amies commun</span></div>
           <div class="buttons">
             <button mat-raised-button color="primary" [ngClass]="{'d-none': message[i] != null && message[i]!=''}" (click)="sendInvitation(suggestion.user.email,i)">send invitation</button>

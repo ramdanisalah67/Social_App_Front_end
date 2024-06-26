@@ -1,0 +1,86 @@
+<div class="parent">
+  <div class="hiden"></div>
+  <div class="cadre">
+    <div class="profile">
+      <img [src]="post.owner.images[0].url" alt="">
+      <p>ramdani salah-eddine <span>205min</span></p>
+
+    </div>
+    <ion-icon name="ellipsis-horizontal-circle-outline"></ion-icon>
+
+  </div>
+  <p class="text">
+        {{ post.text }}
+  </p>
+ <div class="image">
+  <div class="media">
+    <img [src]="post.images[0].url" alt="">
+  </div>
+  
+    <div class="buttons">
+      <p *ngIf="hasLikedPost()"><i class="fa-solid fa-heart" style="color: #e01b24;"  (click)="removeLike()"></i><span>{{ post.nbr_liked.length }}</span></p>
+      <p *ngIf="!hasLikedPost()"><i class="fa-solid fa-heart" style="color: #d6c9c9;" (click)="likePost()"  ></i><span>{{ post.nbr_liked.length }}</span></p>     <p > <i class="fa-regular fa-comment" *ngIf="post.comments.length>0" ></i><span> {{ post.comments.length }} </span></p>
+      <p><i class="fa-solid fa-share"></i><span>6</span></p>
+ 
+  </div>
+ </div>
+
+ <div class="comments-bar" *ngIf="commentWithResponses.length>0">
+  <div class="comment"   *ngFor="let section of commentWithResponses">
+    <div class="user-comment-profile">
+      <img [src]="section.comment.owner.images[0].url" alt="">
+      <p> {{ section.comment.owner.fullName }}<span> {{handleTime.getTime(section.comment.createdAt)}} </span></p>
+    </div>
+    <div class="comment-text">
+      <p> {{section.comment.content}} </p>
+        <div class="image-comment">
+          <img *ngIf="section.comment.media" [src]="section.comment.media.url" width="100px" height="100px" alt="">
+
+        </div>
+      <div class="icons">
+        <i class="fa-solid fa-heart" ></i>
+      <span>125</span>
+      <i class="fa-solid fa-reply" (click)="replyComment(section.comment)"></i>
+      <span *ngIf="section.responses" (click)="getResponsesBySelectedComment(section.comment.id)"> {{section.responses.length}}</span>
+    </div>
+    </div>
+  </div>  
+ </div>
+
+
+
+
+ <div class="comment-zone">
+  
+  <div class="comment-media" >
+   <div class="image-reply" *ngIf="imageReplyComment">
+    <p>reply To :</p>
+    <img *ngIf="imageReplyComment" [src]="imageReplyComment"  alt="">
+    <ion-icon name="close-circle-outline"></ion-icon>
+   </div>
+   <div class="image-send" *ngIf="comment.media">
+    <img *ngIf="comment.media" [src]="comment.media.url" alt="">
+    <ion-icon name="close-circle-outline"></ion-icon>
+   </div>
+
+  </div>
+ <div class="text-comment" >
+  <img [src]="connectUser.images[0].url" alt="">
+
+  <textarea #replyInput placeholder="type your Comment here ..." [(ngModel)]="comment.content"></textarea>
+  <div class="options">
+    <ion-icon name="send-outline" (click)="saveComment()"></ion-icon>
+    <ion-icon name="image-outline" (click)="myImage.click()"></ion-icon>
+    <ion-icon name="happy-outline" (click)="change()"></ion-icon>
+      <emoji-mart style *ngIf="visibility === 'block'" class="emoji"
+        (emojiClick)="addEmoji($event)"
+        [i18n]="{ search: 'Recherche', categories: { search: 'Résultats de recherche', recent: 'Récents' } }"
+      ></emoji-mart>
+</div>
+ </div>
+ </div>
+ <div class="hidden-down"></div>
+</div>
+
+
+<input type="file" class="input-image d-none" #myImage (change)="onFileSelected($event)"  >

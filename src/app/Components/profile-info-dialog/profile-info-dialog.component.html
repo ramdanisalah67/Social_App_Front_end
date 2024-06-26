@@ -1,0 +1,151 @@
+
+<h2 mat-dialog-title class="title">About</h2>
+<mat-dialog-content>
+  <mat-tab-group>
+    <mat-tab label="Basic Infos" class="tab">
+      <div class="info">
+        <p>Bio</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter Bio</mat-label>
+          <textarea  matInput placeholder="EX. rhey i'm salah-eddine ....."  [(ngModel)]="userInfo.bio"></textarea>
+          
+        </mat-form-field>
+      </div> 
+      <div class="info">
+        <p>Pays</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter Pays</mat-label>
+          <input  matInput placeholder="EX. ramdani salah-eddine"  [(ngModel)]="userInfo.pays">
+          <mat-icon matSuffix>home</mat-icon>
+         
+        </mat-form-field>
+      </div>      
+      <div class="info">
+        <p>FullName</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter FullName</mat-label>
+          <input  matInput placeholder="EX. ramdani salah-eddine" [(ngModel)]="userInfo.fullName">
+          <mat-icon matSuffix>person</mat-icon>
+         
+        </mat-form-field>
+      </div>
+      <div class="info">
+        <p>Email</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter Email</mat-label>
+          <input  matInput placeholder="EX. xxx@gmail.com" [(ngModel)]="userInfo.email">
+          <mat-icon matSuffix>email</mat-icon>
+         
+        </mat-form-field>
+      </div>
+      <div class="info">
+        <p>phoneNumber</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter phoneNumber</mat-label>
+          <input  matInput placeholder="EX. 212615236489" [(ngModel)]="userInfo.phoneNumber" >
+          <mat-icon matSuffix>phone</mat-icon>
+
+        </mat-form-field>
+      </div>
+
+        <div class="alert alert-success" *ngIf="message!= ''">user Information updated</div>
+    </mat-tab>
+    <mat-tab label="Personnal Info"> 
+      <div class="info">
+        <p>Date Of Birth</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter Pays</mat-label>
+          <input  matInput placeholder="EX. 1998/07/02"  type="date"  [(ngModel)]="userInfo.dateOfBirth">
+         
+        </mat-form-field>
+      </div>
+      <div class="info">
+        <p>Gender</p>
+
+        <mat-form-field>
+          <mat-label>Gender</mat-label>
+          <select matNativeControl required [(ngModel)]="userInfo.gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="celibataire" *ngIf="userInfo.gender == 'no data'" selected>no data</option>
+
+          </select>
+        </mat-form-field>
+        
+      </div>
+      <div class="info">
+        <p>RelationShip Status</p>
+
+        <mat-form-field>
+          <mat-label>RelationShip</mat-label>
+          <select matNativeControl required [(ngModel)]="userInfo.relationShipStatus">
+            <option value="married">married</option>
+            <option value="celibataire">celibataire</option>
+            <option value="celibataire" *ngIf="userInfo.relationShipStatus == 'no data'" selected>no data</option>
+
+          </select>
+        </mat-form-field>
+      </div>
+      <div class="info">
+        <p>Languages Spoken</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter language spoken</mat-label>
+          <input  matInput placeholder="EX. ramdani salah-eddine" [(ngModel)]="userInfo.languages">
+         
+        </mat-form-field>
+      </div> 
+      
+    </mat-tab>
+
+    <mat-tab label="Proffesional Info"> 
+      <div class="info">
+        <p>Current Job Title</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter Current Job Title</mat-label>
+          <input  matInput placeholder="EX. Java Developer" [(ngModel)]="userInfo.currentJobTitle" >
+         
+        </mat-form-field>
+      </div>
+      <div class="info">
+        <p>Company/Organization</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter Company/Organization</mat-label>
+          <input  matInput placeholder="EX. Apple Oracle" [(ngModel)]="userInfo.company">
+          <mat-icon matSuffix>company</mat-icon>
+
+        </mat-form-field>
+     
+        
+      </div>
+      <div class="info">
+        <p>Work Experience</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter Work Experience</mat-label>
+          <textarea  matInput placeholder="EX. i have work at microseft 2 years .. " [(ngModel)]="userInfo.workExperience"></textarea>
+         
+        </mat-form-field>
+      </div>
+      <div class="info">
+        <p>Education</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter Education</mat-label>
+          <input  matInput placeholder="EX. i have work at microseft 2 years .. " [(ngModel)]="userInfo.education">
+         
+        </mat-form-field>
+      </div>
+      <div class="info">
+        <p>linkedIn</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your linkedIn Profile</mat-label>
+          <input  matInput placeholder="EX. ramdani salah-eddine" [(ngModel)]="userInfo.linkedInProfile">
+          <mat-icon matSuffix>link</mat-icon>
+         
+        </mat-form-field>
+      </div> 
+    </mat-tab>
+  </mat-tab-group>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close class="exit">No</button>
+  <button mat-flat-button color="primary" mat-dialog-close cdkFocusInitial class="addPost" (click)="updateUserInfo()" >update</button>
+</mat-dialog-actions>

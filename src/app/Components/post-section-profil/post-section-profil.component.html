@@ -1,0 +1,53 @@
+<div class="context">
+ <app-profile-section></app-profile-section>
+  <div class="create-post">
+      <img src="../../../assets/AdobeStock_389328016_Editorial_Use_Only.webp" alt="">
+      <input type="text" placeholder="type something here ..">
+      <div class="buttons">
+        <button mat-flat-button color="primary">Create Post</button>
+        <ion-icon name="image-outline"></ion-icon>
+      </div>
+    </div>
+
+  <div class="posts">
+        <div class="post" *ngFor="let post of posts">
+              <div class="cadre">
+                <div class="username">
+                  <img src="../../../assets/AdobeStock_389328016_Editorial_Use_Only.webp" alt="">
+                  <p>{{post.owner.fullName}} <span>25min</span></p>
+                </div>
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                  <ion-icon name="arrow-down-circle-outline"></ion-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item routerLink="/showProfile">
+                    <mat-icon>edit</mat-icon>
+                    <span>Edit Post</span>
+                  </button>
+                  <button mat-menu-item >
+                    <mat-icon>delete</mat-icon>
+                    <span>delete Post</span>
+                  </button>
+                </mat-menu>
+              </div>
+          <p class="text"> {{post.text}} </p>
+          <img [src]=" post.images[0].url " alt="">
+          <div class="buttons">
+            <button mat-icon-button  aria-label="Example icon-button with a menu">
+              <p *ngIf="hasLikedPost(post)"><i class="fa-solid fa-heart" style="color: #e01b24;"  ></i><span>{{ post.nbr_liked.length }}</span></p>
+              <p *ngIf="!hasLikedPost(post)"><i class="fa-solid fa-heart" style="color: #d6c9c9;"  ></i><span>{{ post.nbr_liked.length }}</span></p>
+
+            </button>
+            <button mat-icon-button  aria-label="Example icon-button with a menu" (click)="showCommentsDialog(post)">
+              <p > <i class="fa-regular fa-comment"></i><span> {{post.comments.length}} </span></p>
+            </button>
+            <button mat-icon-button  aria-label="Example icon-button with a menu">
+              <mat-icon>share</mat-icon>
+            </button>
+          </div>
+        </div>
+       
+  </div>
+
+
+</div>

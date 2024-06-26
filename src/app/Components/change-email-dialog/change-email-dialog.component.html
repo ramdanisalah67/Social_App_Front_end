@@ -1,0 +1,41 @@
+<ion-icon name="close-circle-outline" mat-dialog-close></ion-icon>
+
+
+<mat-dialog-content class="" [ngClass]="{'d-none' : visibility1 === 'none'}">
+  <div class="info">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter Current Email</mat-label>
+      <input  matInput placeholder="EX. ramdani salah-eddine"  [(ngModel)]="req1.emailEntred">
+    </mat-form-field>
+    <button mat-flat-button color="primary" (click)="sendCodeEmail()">Next</button>
+  </div>
+  <div class="success" *ngIf="message != ''"> {{ message }}</div>
+  <div class="error" *ngIf="error != ''"> {{ error }}</div>
+
+
+</mat-dialog-content>
+
+<mat-dialog-content  [ngClass]="{'d-none' : visibility2 === 'none'}">
+ <div class="info">
+  <mat-form-field appearance="fill">
+    <mat-label>Enter Code</mat-label>
+    <input  matInput placeholder="XXXXXX"  [(ngModel)]="code">
+  </mat-form-field>
+  <button mat-flat-button color="primary" (click)="verifyCode()">Next</button>
+ </div>
+ <div class="success" *ngIf="message != ''"> {{ message }}</div>
+ <div class="error" *ngIf="error != ''"> {{ error }}</div>
+</mat-dialog-content>
+
+<mat-dialog-content [ngClass]="{'d-none' : visibility3 === 'none'}">
+  <div class="info">
+  <mat-form-field appearance="fill" >
+    <mat-label>Enter New Email</mat-label>
+    <input  matInput placeholder="EX. xxx@gmail.com"  [(ngModel)]="newEmail">
+  </mat-form-field>
+  <button mat-flat-button color="primary" (click)="changeEmail()">update</button>
+
+</div>
+<div class="success" *ngIf="message != ''"> {{ message }}</div>
+<div class="error" *ngIf="error != ''"> {{ error }}</div>
+</mat-dialog-content>

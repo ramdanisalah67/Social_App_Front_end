@@ -1,47 +1,98 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="super-parent">
+
+<div class="hide"></div>
+
 <div class="home-parent">
 <app-bord-details ></app-bord-details>
-
-<div class="home-content">
-    <div class="createPost">
-        <img src="../../../assets/photo-1521459467264-802e2ef3141f.avif" width="50px" height="50px" alt="" >
-
-        <input type="text" placeholder="type something here ..."  (click)="openDialog('0ms', '0ms')">
+<div class="home-content"  >
+    <div class="success alert alert-info" *ngIf="message != '' ">post created successfullly</div>
+    <div class="header">
+        <img *ngIf="connecteUser" [src]="connecteUser.images[0].url" alt="">
+        <input type="text" placeholder="type something here ...">
         <div class="icons">
-            <ion-icon name="add-circle-outline"></ion-icon>
-            <ion-icon name="image-outline" (click)="myImages.click()"></ion-icon>
-            <input type="file" #myImages class="d-none">
+            <ion-icon name="add-circle-outline" (click)="openDialog('0ms', '0ms',null)"></ion-icon>
+            <ion-icon name="image-outline" ></ion-icon>       
             <ion-icon name="videocam-outline"></ion-icon>
         </div>
+
     </div>
-    <div class="pr-posts">
-   <div class="posts">
-    <div class="post" *ngFor="let p of posts" >
-        <div class="user">
-        <div class="fix-taille">
-            <img src="../../../assets/photo-1521459467264-802e2ef3141f.avif" alt="" >
-            <div class="username-time"><p>ramdani salah-eddine</p><span>il y a 25 min</span></div>
-        </div>  
-        </div>
-        <div class="text mg" > {{ p.text }}</div>
-        <div class="media mg" >
-            <img
-             [src]="p.images[0].url" style="cursor: pointer;" alt="" class="image" (click)="showPostDetails(p)">
-        </div>
-        <div class="pos-buttons">
-        <div class="buttons">
-            <ion-icon name="heart-outline"></ion-icon>
-            <i class="fa-regular fa-comment"></i>
-            <i class="fa-solid fa-share"></i>
-        </div>
-        </div>
+    <div class="posts" #postContainer  (scroll)="onScroll($event)">
+
+
+                
+            <div class="post" *ngFor="let p of posts">
+                <div class="cadre">
+                    <div class="profile">
+                        <img [src]="p.owner.images[0].url" alt="">
+                        <p class="text">{{p.owner.fullName }} <span> {{handleTime.getTime(p.createdAt)}}</span></p>
+                        
+                    </div>
+                    <button mat-icon-button  aria-label="Example icon-button with a menu" [matMenuTriggerFor]="menu">
+                        <ion-icon name="ellipsis-horizontal-circle-outline"></ion-icon>
+                    </button>
+
+                    <mat-menu #menu="matMenu" class="options">
+                        <button mat-menu-item (click)="editPost(p)">
+                          <mat-icon>edit</mat-icon>
+                          <span>Edit the post</span>
+                        </button>
+                        
+                        <button mat-menu-item  >
+                          <mat-icon>delete</mat-icon>
+                          <span>delete the post</span>
+                        </button>
+                        
+                        
+                      </mat-menu>
+                </div>
+                <div class="content">
+                    <p class="text">{{ p.text }}</p>
+                 <div class="interaction">
+                    <div class="media" *ngIf="p.images.length > 0 && p.images !=null"  >
+                         <img  [src]="p.images[0].url" alt="">
+                    </div>
+                    <div class="media" *ngIf="p.video">
+                         <video  [src]="p.video.url" controls></video>
+                     </div>
+
+                    <div class="buttons" *ngIf="p.video || p.images.length>0">
+                        <p *ngIf="hasLikedPost(p)"><i class="fa-solid fa-heart" style="color: #e01b24;"  (click)="removeLike(p)"></i><span>{{ p.nbr_liked.length }}</span></p>
+                        <p *ngIf="!hasLikedPost(p)"><i class="fa-solid fa-heart" style="color: #d6c9c9;" (click)="likePost(p)"  ></i><span>{{ p.nbr_liked.length }}</span></p>
+
+                       <p (click)="showCommentsDialog(p,connecteUser)"> <i class="fa-regular fa-comment"></i><span *ngIf="p.comments"> {{p.comments.length}} </span></p>
+                        <p><i class="fa-solid fa-share" (click)="share()"></i><span>6</span></p>
+                    </div>
+                    <div class="buttons-text" *ngIf="!p.video && p.images.length==0">
+                        <p *ngIf="hasLikedPost(p)"><i class="fa-solid fa-heart" style="color: #e01b24;"  (click)="removeLike(p)"></i><span>{{ p.nbr_liked.length }}</span></p>
+                        <p *ngIf="!hasLikedPost(p)"><i class="fa-solid fa-heart" style="color: #d6c9c9;" (click)="likePost(p)"  ></i><span>{{ p.nbr_liked.length }}</span></p>
+
+                       <p (click)="showCommentsDialog(p,connecteUser)"> <i class="fa-regular fa-comment"></i>
+                        <span *ngIf="!p.comments"> 0</span>
+                        <span *ngIf="p.comments"> {{p.comments.length}} </span>
+
+                    </p>
+                        <p><i class="fa-solid fa-share" (click)="share()"></i><span>6</span></p>
+                    </div>
+                 </div>
+                  
+                </div>
+            </div>
+            <div *ngIf="loading" class="loading-indicator">
+                <p>Loading more posts...</p>
+              </div>
+              
+              <div *ngIf="!hasMore && !loading" class="end-of-posts">
+                <p>No more posts to show.</p>
+              </div>
     </div>
-  
-   </div>
-</div>
 </div>
 
 <app-state-user ></app-state-user>
 
+</div>
 
 <app-private-message-bar></app-private-message-bar>
+
 </div>

@@ -1,0 +1,82 @@
+<div class="allInfo" >
+  <mat-icon (click)="showInfos()">edit</mat-icon>
+  <div class="details">
+    <mat-tab-group>
+      <mat-tab label="Basic Infos" class="tab">
+        <div class="categorie" >
+          <div class="bio "><p class="h5">Bio/Description</p> 
+            <p> {{userInfo.bio}} </p>
+          </div>
+          <hr>
+          <div class="p-info"><ion-icon name="home-outline"></ion-icon>
+            <span *ngIf="userInfo.pays">{{userInfo.pays}}</span>
+            <span *ngIf="!userInfo.pays">no data</span>
+
+          </div>  
+        <div class="p-info"><ion-icon name="person-circle-outline"></ion-icon>
+          <span *ngIf="userInfo.fullName">{{userInfo.fullName}}</span>
+          <span *ngIf="!userInfo.fullName">no data</span>        
+        </div>  
+        <div class="p-info"><ion-icon name="mail-outline"></ion-icon>
+          <span *ngIf="userInfo.email">{{userInfo.email}}</span>
+          <span *ngIf="!userInfo.email">no data</span>
+        </div>  
+        <div class="p-info"><ion-icon name="call-outline"></ion-icon>
+          <span *ngIf="userInfo.phoneNumber">{{userInfo.phoneNumber}}</span>
+          <span *ngIf="!userInfo.phoneNumber">no data</span>
+        </div> 
+        </div> 
+
+      </mat-tab>
+      <mat-tab label="Personnal Info"> 
+        <div class="categorie">
+        <p class="personnal-info-title h5">Personal Info</p>
+        <div class="p-info"><p class="h6">Date of Birth</p>
+          <span *ngIf="userInfo.dateOfBirth">{{userInfo.dateOfBirth}}</span>
+          <span *ngIf="!userInfo.dateOfBirth">no data</span>
+        </div>  
+        <div class="p-info"><p class="h6">Gender</p>
+          <span *ngIf="userInfo.gender">{{userInfo.gender}}</span>
+          <span *ngIf="!userInfo.gender">no data</span>
+        </div>  
+        <div class="p-info"><p class="h6">Relationship Status</p>
+          <span *ngIf="userInfo.relationShipStatus">{{userInfo.relationShipStatus}}</span>
+          <span *ngIf="!userInfo.relationShipStatus">no data</span>
+        </div>  
+        <div class="p-info"><p class="h6">Languages Spoken</p>
+          <span *ngIf="userInfo.languages">{{userInfo.languages}}</span>
+          <span *ngIf="!userInfo.languages">no data</span>
+        </div>  
+
+      </div>
+         </mat-tab>
+      <mat-tab label="Proffesional Info">
+        <div class="categorie">
+          <p class="personnal-info-title h5">Professional Info</p>
+          <div class="p-info"><p class="h6">Current Job Title</p>
+            <span *ngIf="userInfo.currentJobTitle">{{userInfo.currentJobTitle}}</span>
+            <span *ngIf="!userInfo.currentJobTitle">no data</span>
+          </div>  
+          <div class="p-info"><p class="h6">Company/Organization</p>
+            <span *ngIf="userInfo.company">{{userInfo.company}}</span>
+            <span *ngIf="!userInfo.company">no data</span>
+          </div>  
+          <div class="p-info"><p class="h6">Work Experience</p>
+            <span *ngIf="userInfo.workExperience">{{userInfo.workExperience}}</span>
+            <span *ngIf="!userInfo.workExperience">no data</span>
+          </div>  
+          <div class="p-info"><p class="h6">Education</p>
+            <span *ngIf="userInfo.education">{{userInfo.education}}</span>
+            <span *ngIf="!userInfo.education">no data</span>
+          </div>
+          <div class="p-info"><p class="h6">LinkedIn Profile</p>
+            <span *ngIf="userInfo.linkedIn">{{userInfo.linkedIn}}</span>
+            <span *ngIf="!userInfo.linkedIn">no data</span>
+          </div>  
+
+  
+        </div> </mat-tab>
+
+    </mat-tab-group>
+  </div>
+</div>

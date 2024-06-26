@@ -1,0 +1,27 @@
+<div class="buttons">
+  <button mat-raised-button color="primary" (click)="setAllPermissions('Private')">Set All to Private</button>
+  <button mat-raised-button color="primary" (click)="setAllPermissions('Friend')">Set All to Friends</button>
+  <button mat-raised-button color="primary" (click)="setAllPermissions('Public')">Set All to Public</button>
+  <button mat-raised-button color="primary" (click)="savePermissions()">Save Permissions</button>
+</div>
+
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="field">
+    <mat-header-cell *matHeaderCellDef> Field </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.field}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="permission">
+    <mat-header-cell *matHeaderCellDef> Permission </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <mat-radio-group [(ngModel)]="element.permission" color="primary">
+        <mat-radio-button *ngFor="let permission of permissions" [value]="permission" (change)="changePermission(element, permission)">
+          {{permission}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

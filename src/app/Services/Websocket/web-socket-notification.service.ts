@@ -14,16 +14,17 @@ export class WebSocketNotificationService {
 
 
   constructor(private http: HttpClient) { 
+    this.initConnectionSocket()
     }
 
   initConnectionSocket():Boolean {
     let authToken = localStorage.getItem("token")
     let connectionSuccess:boolean = false
-    const socket = new SockJS('http://localhost:8090/mySocket?token='+authToken);
+    const socket = new SockJS('http://localhost:8090/notif?token='+authToken);
     this.stompClient = Stomp.over(socket);
 
     this.stompClient.connect({}, () => {
-      console.log('Connected to WebSocket');
+      console.log('<h1>Connected to WebSocket for notificationnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn</h1>');
       this.subscribeToMessages()
       connectionSuccess = true 
       console.log(connectionSuccess)
@@ -34,8 +35,8 @@ export class WebSocketNotificationService {
 
  
   public subscribeToMessages() {
-    this.stompClient.subscribe('/user/queue/messages', (message: any) => {
-      console.log('Received message:', message);
+    this.stompClient.subscribe('/user/queue/notification', (message: any) => {
+      console.log('Received message from notification-service:', message);
       const notification: NotificationItem = JSON.parse(message.body);
       this.messageSubject.next(notification);
      

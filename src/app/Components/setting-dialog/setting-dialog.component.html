@@ -1,0 +1,52 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="content">
+  <mat-tab-group>
+    <mat-tab label="Account" class="tab">
+      <div class="choice">
+        <div class="card">
+          <img [src]="user.images[0].url" alt="">
+          <mat-form-field appearance="fill">
+            <mat-label> FullName</mat-label>
+            <input disabled matInput placeholder="EX. ramdani salah-eddine" [(ngModel)] = "user.fullName">
+            <mat-icon matSuffix (click)="goToFullNameDialog(user)">edit</mat-icon>
+          
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label> Email</mat-label>
+            <input  disabled matInput placeholder="EX. ramdani salah-eddine"  [(ngModel)] = "user.email" >
+            <mat-icon matSuffix (click)="goToEmailDialog(user)">edit</mat-icon>
+          
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label> Password</mat-label>
+            <input type="password" disabled matInput placeholder="EX. ramdani salah-eddine"  [(ngModel)] = "user.password">
+            <mat-icon matSuffix (click)="goToPasswordDialog(user)">edit</mat-icon>
+          
+          </mat-form-field>
+        </div>
+
+      </div>
+  
+    </mat-tab>
+    <mat-tab label="Permissions" >
+   <div class="permissions">
+    <div class="bar">
+      <button mat-button routerLink="/setting/userInfoPermissions" routerLinkActive="active" class="friends " ><i class="fa-solid fa-user"></i><span>PersonalInformation</span></button>
+      <button mat-button routerLink="/setting/PostsPermissions" routerLinkActive="active" class="friends " ><i class="fa-solid fa-user-group"></i><span>Posts</span></button>
+      <button mat-button class="friends " ><i class="fa-solid fa-user-group"></i><span>Friends</span></button>
+
+
+    </div>
+    <div class="details">
+  
+  <router-outlet></router-outlet>      
+    
+
+
+    </div>
+   </div>
+
+    </mat-tab>
+    </mat-tab-group>
+</div>

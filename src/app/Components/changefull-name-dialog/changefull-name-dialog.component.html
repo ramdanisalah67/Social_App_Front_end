@@ -1,0 +1,12 @@
+<ion-icon name="close-circle-outline" mat-dialog-close></ion-icon>
+
+<mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter New FullName</mat-label>
+    <input  matInput placeholder="EX. ramdani salah-eddine" [(ngModel)]="user.fullName">
+  </mat-form-field>
+  <button mat-flat-button color="primary" (click)="setFullNAme()">update</button>
+  <div class="success">{{message}}</div>
+  <div class="error"> {{error}} </div>
+
+</mat-dialog-content>

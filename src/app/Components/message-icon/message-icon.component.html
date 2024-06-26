@@ -1,0 +1,54 @@
+<button mat-button   [matMenuTriggerFor]="menumessage" aria-label="Example icon-button with a menu" routerLinkActive="active" style="height: 100%;" >
+  <mat-icon>message</mat-icon>
+  <span class="badge" >{{numberNotifPerItems}}</span>
+
+  </button>
+  <mat-menu #menumessage="matMenu" class="messages" >
+   <p class="h5 chat" appStopPropagationDirective>Chats</p>
+   <div class="boite-message" >
+    <div class="user" *ngFor="let messageItem of messageItems;let i=index" (click)="getBoiteItem(messageItem.boiteItemId,i)" >
+      <img src="../../../assets/AdobeStock_389328016_Editorial_Use_Only.webp" width="50px" height="50px" alt="">
+      <div class="username h5"> {{messageItem.friend.fullName}} 
+        <div class="text-normal" *ngIf="messageItem.lastMessage.text.length>0 && email==messageItem.lastMessage.source">
+          <span *ngIf="messageItem.lastMessage.text.length>=25"> You :{{messageItem.lastMessage.text.substring(0,25)}}.... </span> 
+        <span *ngIf="messageItem.lastMessage.text.length<25"> You : {{messageItem.lastMessage.text}} </span> 
+        </div>
+        <div  *ngIf="messageItem.lastMessage.text.length>0 && email!=messageItem.lastMessage.source">
+          <span *ngIf="messageItem.lastMessage.text.length>=25"> You :{{messageItem.lastMessage.text.substring(0,25)}}.... </span> 
+        <span *ngIf="messageItem.lastMessage.text.length<25"> You : {{messageItem.lastMessage.text}} </span> 
+        </div>
+
+        <div *ngIf="messageItem.lastMessage.text.length==0">
+          <span *ngIf="messageItem.images.length>0">
+            this is image
+          </span>
+          <span> empty message </span> 
+        </div>
+      
+      
+      
+      </div>
+      <p class="date"> {{handleTime.getTime(messageItem.lastMessage.createdAt)}} </p>
+      <ion-icon name="ellipsis-horizontal-outline" [matMenuTriggerFor]="menueUser"  appStopPropagationDirective></ion-icon>
+      <mat-menu #menueUser="matMenu">
+        <button mat-menu-item>
+          <mat-icon>account_circle</mat-icon>
+          <span>Show Profile</span>
+        </button>
+        
+        <button mat-menu-item >
+          <mat-icon>delete</mat-icon>
+          <span>delete Conversation</span>
+        </button>
+        
+        <button mat-menu-item >
+          <mat-icon>block</mat-icon>
+          <span>Block user</span>
+        </button>
+      </mat-menu>
+    </div>
+   
+   </div>
+   <p class="h5 text-dark show-all-message">View All in Messenger</p>
+
+  </mat-menu>

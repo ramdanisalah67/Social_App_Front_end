@@ -1,0 +1,107 @@
+
+
+
+.content {
+    display: flex;
+    justify-content:center;
+    background: beige;
+    height: 100vh;
+    width: 100%
+}
+
+
+ mat-tab-group {
+    display: flex;
+    flex-grow: 0.4;
+    height: 900px;
+}
+
+
+.choice {
+    width: 934px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+
+.card {
+    width: 60%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+
+.card input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 8px;
+    color: black;
+}
+
+mat-form-field {
+    width: 90%;
+}
+
+mat-icon {
+    cursor: pointer;
+}
+
+
+mat-tab {
+    height: 80%;
+}
+.permissions {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    height: 800px;
+    padding: 25px;
+}
+
+.permissions .bar {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around ;
+    flex-grow: 0.1;
+}
+.permissions .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+   width: 934px;
+    height: 700px;
+    padding-left: 170px;
+}
+mat-table {
+    margin-top: 25px;
+    height: 500px;
+}
+.bar button {
+    height: 55px;
+}
+.bar button i {
+    margin-right: 5px;
+}
+
+.active {
+    background-color: black;
+}
+
+.active i {
+    color: white;
+}
+.active span {
+    color: white;
+}
